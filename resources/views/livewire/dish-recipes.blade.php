@@ -42,7 +42,7 @@
                                     <div class="gallery-single fix">
                                         <img src="{{asset('assets/images/')}}/{{$recipe->image}}" class="img-fluid" alt="{{$recipe->name}}">
                                         <div class="why-text">
-                                            <h4><a href="#">{{$recipe->name}}</a></h4>
+                                            <h1><a href="{{route('recipe.details',['slug'=>$recipe->slug])}}">{{$recipe->name}}</a></h1>
                                         </div>
                                     </div>
                                 </div>

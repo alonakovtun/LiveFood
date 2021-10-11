@@ -3,6 +3,7 @@
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\DishRecipes;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\RecipeDetailsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeComponent::class);
 Route::get('/dish-recipes', DishRecipes::class);
+Route::get('/recipe/{slug}', RecipeDetailsComponent::class)->name('recipe.details');
 
 /* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
