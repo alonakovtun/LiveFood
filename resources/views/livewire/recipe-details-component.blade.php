@@ -19,7 +19,7 @@
                     <div class="blog-inner-details-page">
                         <div class="blog-inner-box">
                             <div class="side-blog-img">
-                                <img class="img-fluid" src="{{asset('assets/images')}}/{{$recipe->image}}" alt="{{$recipe->name}}">
+                                <img class="img-fluid" src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" alt="{{$recipe->name}}">
                             </div>
                             <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#">Add to favourites</a>
                             <div class="inner-blog-detail details-page">
@@ -115,7 +115,7 @@
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
                         </div>
-                        <h3>Categories</h3>
+                        <h3>Ingredients</h3>
                         <div class="blog-categories">
                             <ul>
                                 <li><a href="#"><span>Food</span></a></li>

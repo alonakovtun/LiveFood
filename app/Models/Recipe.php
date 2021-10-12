@@ -10,4 +10,8 @@ class Recipe extends Model
     use HasFactory;
     
     protected $table = "recipes";
+
+    public function category(){
+        return $this->belongsTo(FoodCategories::class, 'category_id');
+    }
 }

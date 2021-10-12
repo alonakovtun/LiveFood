@@ -21,20 +21,20 @@
                         @endif
                         <form class="form-horizontal" wire:submit.prevent="storeCategory">
                             <div class="form-group">
-                                <label class="col-md-4 control-label h4">Category Name</label>
-                                <div class="col-md-4">
+                                <label class="col-md-8 control-label h4">Category Name</label>
+                                <div class="col-md-8">
                                     <input type="text" class="form-control input-md" placeholder="Category Name" wire:model="name" wire:keyup="generateSlug">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label h4">Category Slug</label>
-                                <div class="col-md-4">
+                                <label class="col-md-8 control-label h4">Category Slug</label>
+                                <div class="col-md-8">
                                     <input type="text" class="form-control input-md" placeholder="Category Slug" wire:model="slug">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label h4"></label>
-                                <div class="col-md-4">
+                                <label class="col-md-8 control-label h4"></label>
+                                <div class="col-md-8">
                                     <button type="submit" class="btn btn-common">Submit</button>
                                 </div>
                             </div>

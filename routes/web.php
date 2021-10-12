@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
+use App\Http\Livewire\Admin\AdminAddRecipeComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
+use App\Http\Livewire\Admin\AdminEditRecipeComponent;
+use App\Http\Livewire\Admin\AdminRecipeComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\DishRecipes;
 use App\Http\Livewire\HomeComponent;
@@ -45,7 +48,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 //For Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+
     Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+
+    Route::get('/admin/recipes', AdminRecipeComponent::class)->name('admin.recipes');
+    Route::get('/admin/recipe/add', AdminAddRecipeComponent::class)->name('admin.addrecipe');
+    Route::get('/admin/recipe/edit/{recipe_slug}', AdminEditRecipeComponent::class)->name('admin.editrecipe');
 });
