@@ -66,49 +66,49 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
-                    </ul>
 
-                    @if(Route::has('login'))
-                    @auth
-                    @if(Auth::user()->utype === 'ADM')
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                            <ul>
-                                <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}" }}>Dashboard</a></li>
-                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                        @if(Route::has('login'))
+                        @auth
+                        @if(Auth::user()->utype === 'ADM')
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <ul>
+                                    <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}" >Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.categories') }}" >Categories</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                                </ul>
+                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <ul>
+                                    <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                                </ul>
+                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endif
+                        @else
+                        <li class="nav-item">
+                            <ul class="navbar-nav ml-50">
+                                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Sign Up</a></li>
                             </ul>
-                            <!-- <a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a>
-							<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> -->
-                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @else
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                            <ul>
-                                <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
-                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
-                            </ul>
-                            <!-- <a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a>
-							<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> -->
-                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endif
-                    @else
-                    <ul class="navbar-nav ml-100">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Sign Up</a></li>
-                    </ul>
-                    @endif
+                        </li>
+                        @endif
 
-                    @endif
+                        @endif
+                    </ul>
+                    @livewire('header-search-component')
                 </div>
             </div>
         </nav>
