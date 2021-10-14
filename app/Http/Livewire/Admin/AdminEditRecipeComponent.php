@@ -36,7 +36,28 @@ class AdminEditRecipeComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    public function updated($fields){
+        $this->validateOnly($fields, [
+            'name' => 'required',
+            'slug' => 'required|unique:recipes',
+            'short_description' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+            'category_id' => 'required'
+        ]);
+    }
+
     public function updateRecipe(){
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:recipes',
+            'short_description' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+            'category_id' => 'required'
+        
+        ]);
+
         $recipe = Recipe::find($this->recipe_id);
 
         $recipe->name = $this->name;

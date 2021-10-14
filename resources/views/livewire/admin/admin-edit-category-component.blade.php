@@ -24,12 +24,14 @@
                                 <label class="col-md-4 control-label h4">Category Name</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control input-md" placeholder="Category Name" wire:model="name" wire:keyup="generateSlug">
+                                    @error('name') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label h4">Category Slug</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control input-md" placeholder="Category Slug" wire:model="slug">
+                                    @error('slug') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">

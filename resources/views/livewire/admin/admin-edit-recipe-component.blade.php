@@ -24,24 +24,28 @@
                                 <label class="col-md-8 control-label h4">Recipe Name</label>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control input-md" placeholder="Recipe Name" wire:model="name" wire:keyup="generateSlug">
+                                    @error('name') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Slug</label>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control input-md" placeholder="Recipe Slug" wire:model="slug">
+                                    @error('slug') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Short Description</label>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control input-md" placeholder="Short Description" wire:model="short_description">
+                                    @error('short_description') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Description</label>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control input-md" placeholder="Description" wire:model="description">
+                                    @error('description') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -53,6 +57,7 @@
                                     @else
                                     <img src="{{asset('assets/images/recipes')}}/{{$image}}" width="120">
                                     @endif
+                                    @error('newimage') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -64,6 +69,7 @@
                                        <option value="{{$category->id}}">{{$category->name}}</option>
                                        @endforeach
                                    </select>
+                                   @error('category_id') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             
