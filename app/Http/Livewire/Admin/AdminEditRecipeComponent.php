@@ -39,7 +39,7 @@ class AdminEditRecipeComponent extends Component
     public function updated($fields){
         $this->validateOnly($fields, [
             'name' => 'required',
-            'slug' => 'required|unique:recipes',
+            'slug' => 'required',
             'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
@@ -50,7 +50,7 @@ class AdminEditRecipeComponent extends Component
     public function updateRecipe(){
         $this->validate([
             'name' => 'required',
-            'slug' => 'required|unique:recipes',
+            'slug' => 'required',
             'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',

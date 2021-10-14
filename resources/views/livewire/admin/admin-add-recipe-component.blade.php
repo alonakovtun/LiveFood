@@ -36,15 +36,15 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Short Description</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Short Description" wire:model="short_description">
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md" id="short_description" placeholder="Short Description" wire:model="short_description">
                                     @error('short_description') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Description</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Description" wire:model="description">
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
                                     @error('description') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
@@ -84,3 +84,31 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script>
+    $(function(){
+        tinymce.init({
+            selector:  '#short_description',
+            setup: function(editor){
+                editor.on('Change', function(e){
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#short_description').val();
+                    @this.set('short_description', sd_data);
+                })
+            }
+        })
+
+        tinymce.init({
+            selector:  '#description',
+            setup: function(editor){
+                editor.on('Change', function(e){
+                    tinyMCE.triggerSave();
+                    var d_data = $('#description').val();
+                    @this.set('description', d_data);
+                })
+            }
+        })
+    });
+</script>
+@endpush

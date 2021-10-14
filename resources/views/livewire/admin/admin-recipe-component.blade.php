@@ -43,7 +43,7 @@
                                         <a href="{{route('admin.editrecipe',['recipe_slug'=>$recipe->slug])}}" >
                                             <i class="fa fa-edit fa-2x"></i>
                                         </a>
-                                        <a href="#" wire:click.prevent="deleteRecipe({{$recipe->id}})">
+                                        <a href="#" onclick="confirm('Are you sure, You want to delete this recipe?') || event.stopImmediatePropagation()" wire:click.prevent="deleteRecipe({{$recipe->id}})">
                                             <i class="fa fa-times fa-2x"></i>
                                         </a>
                                     </td>

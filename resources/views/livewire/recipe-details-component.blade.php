@@ -23,7 +23,7 @@
                             </div>
                             <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#">Add to favourites</a>
                             <div class="inner-blog-detail details-page">
-                                {{$recipe->description}}
+                                {!! $recipe->description !!}
                             </div>
                         </div>
                         <div class="blog-comment-box">
@@ -108,13 +108,9 @@
 
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
                     <div class="right-side-blog">
-                        <h3>Search</h3>
-                        <div class="blog-search-form">
-                            <input name="search" placeholder="Search blog" type="text">
-                            <button class="search-btn">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </div>
+                        <div class="inner-blog-detail details-page">
+                                {!! $recipe->short_description !!}
+                            </div>
                         <h3>Ingredients</h3>
                         <div class="blog-categories">
                             <ul>
@@ -132,7 +128,7 @@
                                 @foreach($related_recipes as $related_recipe)
                                 <div class="recent-box-blog">
                                     <div class="recent-img" style="width:40%">
-                                        <img class="img-fluid" src="{{asset('assets/images') }}/{{$related_recipe->image}}" alt="">
+                                        <img class="img-fluid" src="{{asset('assets/images/recipes') }}/{{$related_recipe->image}}" alt="">
                                     </div>
                                     <div class="recent-info">
                                         <!-- <ul>
@@ -142,7 +138,7 @@
 										</ul> -->
 
                                         <h4><a href="{{route('recipe.details',['slug'=>$related_recipe->slug])}}">{{$related_recipe->name}}</a></h4>
-                                        <p>{{$related_recipe->short_description}}</p>
+                                        <p>{!! $related_recipe->short_description !!}</p>
                                     </div>
                                 </div>
                                 @endforeach

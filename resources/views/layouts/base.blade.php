@@ -189,7 +189,9 @@
     <script src="{{ asset('assets/js/form-validator.min.js') }}"></script>
     <script src="{{ asset('assets/js/contact-form-script.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="https://cdn.tiny.cloud/1/wdrdh5p7wxth0sddw2md5sh2ld2pequng5bk7rtoe7ufhgvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>
