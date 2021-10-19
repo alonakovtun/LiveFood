@@ -69,7 +69,7 @@
                             @foreach($recipes as $recipe)
                             <div class="col-lg-4 col-md-6 special-grid drinks">
                                 <div class="gallery-single fix">
-                                    <img src="{{asset('assets/images/')}}/{{$recipe->image}}" class="img-fluid" alt="{{$recipe->name}}">
+                                    <img src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" class="img-fluid" alt="{{$recipe->name}}">
                                     <div class="why-text">
                                         <h1><a href="{{route('recipe.details',['slug'=>$recipe->slug])}}">{{$recipe->name}}</a></h1>
                                     </div>

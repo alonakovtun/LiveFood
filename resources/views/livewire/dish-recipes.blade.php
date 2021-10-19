@@ -4,7 +4,7 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Dish Recipes</h1>
+                    <a href="/dish-recipes" class="h1 text-white">Dish Recipes</a>
                 </div>
             </div>
         </div>

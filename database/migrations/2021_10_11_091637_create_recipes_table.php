@@ -18,14 +18,12 @@ class CreateRecipesTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->bigInteger('category_id')->unsigned()->nullable();
-           /*  $table->bigInteger('ingredient_id')->unsigned()->nullable(); */
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->text('images')->nullable();
 
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('food_categories')->onDelete('cascade');
-           /*  $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade'); */
         });
     }
 

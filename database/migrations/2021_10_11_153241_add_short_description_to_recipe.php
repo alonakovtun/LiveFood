@@ -14,7 +14,7 @@ class AddShortDescriptionToRecipe extends Migration
     public function up()
     {
         Schema::table('recipes', function (Blueprint $table) {
-            $table->text('short_description');
+            $table->text('short_description')->nullable();
         });
     }
 
