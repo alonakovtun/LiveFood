@@ -23,7 +23,7 @@
 	<!-- End slides -->
 	
 	<!-- Start About -->
-	<div class="about-section-box">
+	<!-- <div class="about-section-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- End About -->
 	
 	<!-- Start QT -->

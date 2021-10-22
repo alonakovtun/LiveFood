@@ -5,6 +5,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>{{$recipe->name}}</h1>
+                    <div class="details-page pt-3 text-white">
+                        {!! $recipe->short_description !!}
+                    </div>
                 </div>
             </div>
         </div>
@@ -108,18 +111,18 @@
 
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
                     <div class="right-side-blog">
-                        <div class="inner-blog-detail details-page">
-                                {!! $recipe->short_description !!}
-                            </div>
+                        <h3 class="pb-2">Category</h3>
+                        <h4 class="pb-4">{{$recipe->category->name}}</h4>
+                        
                         <h3>Ingredients</h3>
                         <div class="blog-categories">
                             <ul>
-                                <li><a href="#"><span>Food</span></a></li>
-                                <li><a href="#"><span>Pizza</span></a></li>
-                                <li><a href="#"><span>Drink</span></a></li>
-                                <li><a href="#"><span>Lorem Sit</span></a></li>
-                                <li><a href="#"><span>Burger</span></a></li>
-                                <li><a href="#"><span>Music</span></a></li>
+                                <li><span>Food</span></li>
+                                <li><span>Pizza</span></li>
+                                <li><span>Drink</span></li>
+                                <li><span>Lorem Sit</span></li>
+                                <li><span>Burger</span></li>
+                                <li><span>Music</span></li>
                             </ul>
                         </div>
                         <h3>Related recipes</h3>

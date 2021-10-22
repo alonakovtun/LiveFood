@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\FoodCategories;
+use App\Models\Ingredient;
 use App\Models\Recipe;
+use App\Models\RecipeWithIngredients;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -18,6 +20,7 @@ class AdminAddRecipeComponent extends Component
     public $description;
     public $image;
     public $category_id;
+    public $ingredient_id;
 
     public function generateSlug(){
         $this->slug = Str::slug($this->name);
@@ -45,6 +48,7 @@ class AdminAddRecipeComponent extends Component
         
         ]);
         $recipe = new Recipe();
+        $recipe_with_ingredients = new RecipeWithIngredients();
         $recipe->name = $this->name;
         $recipe->slug = $this->slug;
         $recipe->short_description = $this->short_description;
@@ -53,14 +57,19 @@ class AdminAddRecipeComponent extends Component
         $this->image->storeAs('recipes', $imageName);
         $recipe->image = $imageName;
         $recipe->category_id = $this->category_id;
-        $recipe->save();
+        $recipe_with_ingredients->recipe_id = $recipe->id;
+        $recipe_with_ingredients->ingredient_id = $this->ingredient_id;
+        
 
+        $recipe->save();
+        $recipe_with_ingredients->save();
         session()->flash('message', 'Recipe has been created successfully!');
     }
 
     public function render()
     {
         $categories = FoodCategories::all();
-        return view('livewire.admin.admin-add-recipe-component', ['categories'=>$categories])->layout('layouts.base');
+        $ingredients = Ingredient::all();
+        return view('livewire.admin.admin-add-recipe-component', ['categories'=>$categories], ['ingredients'=>$ingredients])->layout('layouts.base');
     }
 }

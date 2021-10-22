@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Ingredient;
 use App\Models\Recipe;
+use App\Models\RecipeWithIngredients;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,6 +19,7 @@ class AdminRecipeComponent extends Component
     public function render()
     {
         $recipes = Recipe::paginate(10);
-        return view('livewire.admin.admin-recipe-component', ['recipes'=>$recipes])->layout('layouts.base');
+        $ingredients = RecipeWithIngredients::all();
+        return view('livewire.admin.admin-recipe-component', ['recipes'=>$recipes], ['ingredients'=>$ingredients])->layout('layouts.base');
     }
 }
