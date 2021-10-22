@@ -2148,7 +2148,6 @@ blockquote {
     font-weight: 500;
 }
 .right-btn-re {
-    float: right;
     font-style: italic;
     text-align: right;
     font-size: 16px;
@@ -2157,7 +2156,7 @@ blockquote {
     border-radius: 6px;
 }
 .right-btn-re:hover {
-    background: #d65106;
+    background: #292929;
     color: #ffffff !important;
 }
 .comment-respond-box {
@@ -2469,4 +2468,16 @@ svg{
 .wrap-shop-control .chosen-single span{
   font-size: 13px;
   color: #666666;
+}
+
+.btn-reply{
+  color: #fff;
+  background-color: #d65106;
+  background-image: none;
+  border-color: #d65106;
+}
+
+.btn-reply:hover {
+  background-color: #d65206c9;
+  border-color: #d65206c9;
 }
