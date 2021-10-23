@@ -29,6 +29,7 @@ class RecipeFactory extends Factory
             'name' => $recipe_name,
             'slug' => $slug,
             'description' => $this->faker->text(1000),
+            'short_description' => $this->faker->text(1000),
             'image'=> 'img-' . $this->faker->unique()->numberBetween(1,9).'.jpg',
             'category_id' => $this->faker->numberBetween(1,5)
         ];
