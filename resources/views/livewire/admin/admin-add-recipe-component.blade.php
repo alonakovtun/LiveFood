@@ -70,6 +70,18 @@
                                    @error('category_id') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Ingredients</label>
+                                <div class="col-md-8">
+                                   <select class="form-control" wire:model="ingredient_id">
+                                       <option value="">Select Ingredients</option>
+                                       @foreach($ingredients as $ingredient)
+                                       <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+                                       @endforeach
+                                   </select>
+                                </div>
+                            </div>
                             
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4"></label>

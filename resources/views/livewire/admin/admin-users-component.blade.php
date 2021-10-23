@@ -6,10 +6,7 @@
                     <div class="panel-heading mb-3">
                         <div class="row">
                             <div class="col-md-6 my-auto">
-                                <h1>All Recipes</h1>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="{{route('admin.addrecipe')}}" class="btn btn-lg btn-circle btn-outline-new-white pull-right">Add New Recipe</a>
+                                <h1>All Users</h1>
                             </div>
                         </div>
                     </div>
@@ -19,31 +16,33 @@
                         <div class="alert alert-success" role="alert">
                             {{Session::get('message')}}
                         </div>
-                        @endif
+                    @endif
                         <table class="table tabel-striped">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Image</th>
-                                    <th>Recipe Name</th>
-                                    <th>Category</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Role</th>
                                     <th>Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($recipes as $recipe)
+                                @foreach($users as $user)
                                 <tr>
-                                    <td>{{$recipe->id}}</td>
-                                    <td><img src="{{ asset('assets/images/recipes')}}/{{$recipe->image}}" width="60"></td>
-                                    <td>{{$recipe->name}}</td>
-                                    <td>{{$recipe->category->name}}</td>
-                                    <td>{{$recipe->created_at}}</td>
+                                    <td>{{$user->id}}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->password}}</td>
+                                    <td>{{$user->utype}}</td>
+                                    <td>{{$user->created_at}}</td>
                                     <td>
-                                        <a href="{{route('admin.editrecipe',['recipe_slug'=>$recipe->slug])}}" >
+                                        <a href="{{route('admin.edituser',['user_id'=>$user->id])}}">
                                             <i class="fa fa-edit fa-2x"></i>
                                         </a>
-                                        <a href="#" onclick="confirm('Are you sure, You want to delete this recipe?') || event.stopImmediatePropagation()" wire:click.prevent="deleteRecipe({{$recipe->id}})">
+                                        <a href="#" onclick="confirm('Are you sure, You want to delete this user?') || event.stopImmediatePropagation()" wire:click.prevent="deleteUser({{$user->id}})">
                                             <i class="fa fa-times fa-2x"></i>
                                         </a>
                                     </td>
@@ -51,7 +50,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$recipes->links()}}
+                        {{$users->links()}}
                     </div>
                 </div>
             </div>
