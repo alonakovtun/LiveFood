@@ -24,35 +24,35 @@
                                 <label class="col-md-8 control-label h4">Recipe Name</label>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control input-md" placeholder="Recipe Name" wire:model="name" wire:keyup="generateSlug">
-                                    @error('name') <p class="text-danger">{{$message}}</p>  @enderror
+                                    @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Slug</label>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control input-md" placeholder="Recipe Slug" wire:model="slug">
-                                    @error('slug') <p class="text-danger">{{$message}}</p>  @enderror
+                                    @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Short Description</label>
                                 <div class="col-md-8" wire:ignore>
                                     <input type="text" class="form-control input-md" id="short_description" placeholder="Short Description" wire:model="short_description">
-                                    @error('short_description') <p class="text-danger">{{$message}}</p>  @enderror
+                                    @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Description</label>
                                 <div class="col-md-8" wire:ignore>
                                     <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
-                                    @error('description') <p class="text-danger">{{$message}}</p>  @enderror
+                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Image</label>
                                 <div class="col-md-8">
                                     <input type="file" class="input-file" wire:model="image">
-                                    @error('image') <p class="text-danger">{{$message}}</p>  @enderror
+                                    @error('image') <p class="text-danger">{{$message}}</p> @enderror
                                     @if($image)
                                     <img src="{{$image->temporaryUrl()}}" width="120">
                                     @endif
@@ -61,28 +61,30 @@
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Category</label>
                                 <div class="col-md-8">
-                                   <select class="form-control" wire:model="category_id">
-                                       <option value="">Select Category</option>
-                                       @foreach($categories as $category)
-                                       <option value="{{$category->id}}">{{$category->name}}</option>
-                                       @endforeach
-                                   </select>
-                                   @error('category_id') <p class="text-danger">{{$message}}</p>  @enderror
+                                    <select class="form-control" wire:model="category_id">
+                                        <option value="">Select Category</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8">
-                                   <select class="form-control" wire:model="ingredient_id">
-                                       <option value="">Select Ingredients</option>
-                                       @foreach($ingredients as $ingredient)
-                                       <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
-                                       @endforeach
-                                   </select>
+                                    <input class="form-control input-md mb-2" value="" id='target_input'>
+                                    <select class="form-control" multiple="multiple" wire:model="ingredient_id" id="select_ingredients">
+                                        <option value="">Select Ingredients</option>
+                                        @foreach($ingredients as $ingredient)
+                                        <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+                                        @endforeach
+                                    </select>
+
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4"></label>
                                 <div class="col-md-8">
@@ -99,11 +101,11 @@
 
 @push('scripts')
 <script>
-    $(function(){
+    $(function() {
         tinymce.init({
-            selector:  '#short_description',
-            setup: function(editor){
-                editor.on('Change', function(e){
+            selector: '#short_description',
+            setup: function(editor) {
+                editor.on('Change', function(e) {
                     tinyMCE.triggerSave();
                     var sd_data = $('#short_description').val();
                     @this.set('short_description', sd_data);
@@ -112,9 +114,9 @@
         })
 
         tinymce.init({
-            selector:  '#description',
-            setup: function(editor){
-                editor.on('Change', function(e){
+            selector: '#description',
+            setup: function(editor) {
+                editor.on('Change', function(e) {
                     tinyMCE.triggerSave();
                     var d_data = $('#description').val();
                     @this.set('description', d_data);

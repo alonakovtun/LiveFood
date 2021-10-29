@@ -14,9 +14,6 @@ $markdown->setSafeMode(true);
 
         <div class="mt-2">
             @can('reply-to-comment', $comment)
-
-            <!-- <a href="#" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a> -->
-
             <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" class="btn btn-outline-dark py-2 px-3">@lang('comments::comments.reply')</button>
             @endcan
             @can('edit-comment', $comment)

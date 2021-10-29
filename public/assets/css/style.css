@@ -2481,3 +2481,23 @@ svg{
   background-color: #d65206c9;
   border-color: #d65206c9;
 }
+
+.recipe-favorite{
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  z-index: 99;
+  right: 15px;
+  text-align: right;
+  padding-bottom: 0;
+}
+
+.recipe-favorite .fa{
+  font-size: 25px;
+  transition: color .1s ease-in-out;
+  
+}
+
+.recipe-favorite .fa:hover{
+  color: #eb130cc9;
+}

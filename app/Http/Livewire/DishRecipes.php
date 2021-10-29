@@ -17,6 +17,10 @@ class DishRecipes extends Component
         $this->pagesize = 6;
     }
 
+    public function addToFavorite(){
+        
+    }
+
     use WithPagination;
     public function render()
     {

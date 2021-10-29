@@ -70,6 +70,9 @@
                                     <img src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" class="img-fluid" alt="{{$recipe->name}}" style="height:170px!important; width: 100%!important;" >
                                     <div class="why-text">
                                         <h1><a href="{{route('recipe.details',['slug'=>$recipe->slug])}}">{{$recipe->name}}</a></h1>
+                                        <div class="recipe-favorite">
+                                            <a href="#"><i class=" fa fa-heart"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
