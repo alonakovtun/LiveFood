@@ -20,6 +20,7 @@
                         </div>
                         @endif
                         <form class="form-horizontal" wire:submit.prevent="updateSlider">
+                        @csrf
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Title</label>
                                 <div class="col-md-8">

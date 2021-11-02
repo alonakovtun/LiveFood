@@ -13,6 +13,7 @@ use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminRecipeComponent;
 use App\Http\Livewire\Admin\AdminUsersComponent;
 use App\Http\Livewire\CategoryComponent;
+use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DishRecipes;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\RecipeDetailsComponent;
@@ -40,6 +41,7 @@ Route::get('/dish-recipes', DishRecipes::class);
 Route::get('/recipe/{slug}', RecipeDetailsComponent::class)->name('recipe.details');
 Route::get('/recipe-category/{category_slug}', CategoryComponent::class)->name('recipe.category');
 Route::get('/search', SearchComponent::class)->name('recipe.search');
+Route::get('/contact', ContactComponent::class);
 
 /* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

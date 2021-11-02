@@ -48,10 +48,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 ml-auto mr-auto text-center">
+					<!-- <p class="lead ">
+						" Cooking is a gift from the gods. Spices are a gift from the devil "
+					</p> -->
+					<!-- <span class="lead">Michael Strahan</span> -->
+
 					<p class="lead ">
-						" If you're not the one cooking, stay out of the way and compliment the chef. "
+						" There is no sincerer love than the love of food "
 					</p>
-					<span class="lead">Michael Strahan</span>
+					<span class="lead">George Bernard Shaw</span>
+
+					
 				</div>
 			</div>
 		</div>
@@ -108,7 +115,7 @@
 	<!-- End Gallery -->
 	
 	<!-- Start Customer Reviews -->
-	<div class="customer-reviews-box">
+	<!-- <div class="customer-reviews-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -159,11 +166,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- End Customer Reviews -->
 	
 	<!-- Start Contact info -->
-	<div class="contact-imfo-box">
+	<!-- <div class="contact-imfo-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 arrow-right">
@@ -195,5 +202,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- End Contact info -->

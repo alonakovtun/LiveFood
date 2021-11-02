@@ -20,6 +20,7 @@
                         </div>
                         @endif
                         <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="updateRecipe">
+                        @csrf
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Name</label>
                                 <div class="col-md-8">

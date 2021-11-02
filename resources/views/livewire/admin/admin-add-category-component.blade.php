@@ -20,6 +20,7 @@
                         </div>
                         @endif
                         <form class="form-horizontal" wire:submit.prevent="storeCategory">
+                        @csrf
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Category Name</label>
                                 <div class="col-md-8">
