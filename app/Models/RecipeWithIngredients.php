@@ -12,10 +12,10 @@ class RecipeWithIngredients extends Model
     protected $table = "recipe_with_ingredients";
 
     public function recipe(){
-        return $this->belongsToMany(Recipe::class, 'recipe_id');
+        return $this->hasMany(Recipe::class, 'recipe_id');
     }
 
     public function ingredients(){
-        return $this->belongsToMany(Ingredient::class, 'ingredient_id');
+        return $this->hasMany(Ingredient::class, 'ingredient_id');
     }
 }

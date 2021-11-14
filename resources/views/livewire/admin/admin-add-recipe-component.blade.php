@@ -20,7 +20,7 @@
                         </div>
                         @endif
                         <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="addRecipe">
-                        @csrf
+                            @csrf
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Name</label>
                                 <div class="col-md-8">
@@ -72,11 +72,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" wire:ignore>
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8">
-                                    <input class="form-control input-md mb-2" value="" id='target_input'>
-                                    <select class="form-control" multiple="multiple" wire:model="ingredient_id" id="select_ingredients">
+                                    <select class="form-control js-example-basic-multiple" multiple="multiple" wire:model="ingredient_id" id="select_ingredients">
                                         <option value="">Select Ingredients</option>
                                         @foreach($ingredients as $ingredient)
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
@@ -102,6 +101,9 @@
 
 @push('scripts')
 <script>
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
     $(function() {
         tinymce.init({
             selector: '#short_description',

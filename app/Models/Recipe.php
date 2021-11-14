@@ -11,8 +11,6 @@ class Recipe extends Model
     use HasFactory;
     use Commentable;
 
-    protected $primaryKey = 'id';
-    public $incrementing = false;
     protected $table = "recipes";
 
     public function category(){

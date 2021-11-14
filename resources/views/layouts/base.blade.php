@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     @livewireStyles
 
     <!--[if lt IE 9]>
@@ -190,6 +192,7 @@
     <script src="{{ asset('assets/js/form-validator.min.js') }}"></script>
     <script src="{{ asset('assets/js/contact-form-script.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/wdrdh5p7wxth0sddw2md5sh2ld2pequng5bk7rtoe7ufhgvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @livewireScripts
     @stack('scripts')
