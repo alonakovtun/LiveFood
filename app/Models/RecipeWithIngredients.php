@@ -10,6 +10,7 @@ class RecipeWithIngredients extends Model
     use HasFactory;
 
     protected $table = "recipe_with_ingredients";
+    protected $fillable = ['recipe_id', 'ingredient_id'];
 
     public function recipe(){
         return $this->hasMany(Recipe::class, 'recipe_id');

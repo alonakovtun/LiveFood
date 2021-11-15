@@ -58,14 +58,14 @@ class AdminAddRecipeComponent extends Component
         $recipe->image = $imageName;
         $recipe->category_id = $this->category_id;
         $recipe->save();
-        $data = [];
-        // dd($this->ingredient_id);
+        
         foreach ($this->ingredient_id as $ingredient) {
-            $data['recipe_id'] = $recipe->id;
-            $data['ingredient_id'] = $ingredient;
+            RecipeWithIngredients::create([
+                'recipe_id' => $recipe->id,
+                'ingredient_id' => $ingredient
+            ]);
         }
-        dd($data);
-        RecipeWithIngredients::insert($data);
+        
         session()->flash('message', 'Recipe has been created successfully!');
     }
 
