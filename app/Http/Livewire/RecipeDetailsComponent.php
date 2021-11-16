@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\FoodCategories;
 use App\Models\Recipe;
+use App\Models\Ingredient;
 use Livewire\Component;
 
 class RecipeDetailsComponent extends Component
@@ -18,11 +19,18 @@ class RecipeDetailsComponent extends Component
     {
         $categories = FoodCategories::all();
         $recipe = Recipe::where('slug', $this->slug)->first();
+        $ingredients = Ingredient::select('ingredients.name')
+            ->leftJoin('recipe_with_ingredients', 'ingredients.id', '=', 'recipe_with_ingredients.ingredient_id')
+            ->where('recipe_with_ingredients.recipe_id', $recipe->id)
+            ->get();
         $related_recipes = Recipe::where('category_id', $recipe->category_id)->inRandomOrder()->limit(4)->get();
+        
         return view('livewire.recipe-details-component', 
-        ['recipe'=>$recipe],
-        ['related_recipes'=>$related_recipes],
-        ['categories'=>$categories]
+            ['recipe' => $recipe,
+            'ingredients' => $ingredients,
+            'related_recipes' => $related_recipes,
+            'categories' => $categories]
+            
         )->layout('layouts.base');
     }
 }

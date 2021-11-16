@@ -32,7 +32,7 @@
                         @comments(['model' => $recipe])
                     </div>
                 </div>
-
+                
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
                     <div class="right-side-blog">
                         <h3 class="pb-2">Category</h3>
@@ -41,12 +41,9 @@
                         <h3>Ingredients</h3>
                         <div class="blog-categories">
                             <ul>
-                                <li><span>Food</span></li>
-                                <li><span>Pizza</span></li>
-                                <li><span>Drink</span></li>
-                                <li><span>Lorem Sit</span></li>
-                                <li><span>Burger</span></li>
-                                <li><span>Music</span></li>
+                                @foreach($ingredients as $ingredient)
+                                <li><span>{{ $ingredient->name }}</span></li>
+                                @endforeach
                             </ul>
                         </div>
                         <h3>Related recipes</h3>

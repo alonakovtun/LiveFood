@@ -14,13 +14,14 @@ use Livewire\WithFileUploads;
 class AdminAddRecipeComponent extends Component
 {
     use WithFileUploads;
+
     public $name;
     public $slug;
     public $short_description;
     public $description;
     public $image;
     public $category_id;
-    public $ingredient_id;
+    public $ingredients_array;
 
     public function generateSlug(){
         $this->slug = Str::slug($this->name);
@@ -48,7 +49,6 @@ class AdminAddRecipeComponent extends Component
         
         ]);
         $recipe = new Recipe();
-        $recipe_with_ingredients = new RecipeWithIngredients();
         $recipe->name = $this->name;
         $recipe->slug = $this->slug;
         $recipe->short_description = $this->short_description;
@@ -59,7 +59,7 @@ class AdminAddRecipeComponent extends Component
         $recipe->category_id = $this->category_id;
         $recipe->save();
         
-        foreach ($this->ingredient_id as $ingredient) {
+        foreach ($this->ingredients_array as $ingredient) {
             RecipeWithIngredients::create([
                 'recipe_id' => $recipe->id,
                 'ingredient_id' => $ingredient
@@ -73,6 +73,7 @@ class AdminAddRecipeComponent extends Component
     {
         $categories = FoodCategories::all();
         $ingredients = Ingredient::all();
-        return view('livewire.admin.admin-add-recipe-component', ['categories'=>$categories], ['ingredients'=>$ingredients])->layout('layouts.base');
+        
+        return view('livewire.admin.admin-add-recipe-component', ['categories' =>$categories ], ['ingredients' => $ingredients])->layout('layouts.base');
     }
 }

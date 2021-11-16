@@ -75,8 +75,7 @@
                             <div class="form-group" wire:ignore>
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8">
-                                    <select class="form-control js-example-basic-multiple" multiple="multiple" wire:model="ingredient_id" id="select_ingredients">
-                                        <option value="">Select Ingredients</option>
+                                    <select class="form-control js-example-basic-multiple" multiple="multiple" wire:model="ingredients_array" id="select_ingredients">
                                         @foreach($ingredients as $ingredient)
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
                                         @endforeach
