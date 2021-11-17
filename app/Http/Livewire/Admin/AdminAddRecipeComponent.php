@@ -15,16 +15,22 @@ class AdminAddRecipeComponent extends Component
 {
     use WithFileUploads;
 
-    public $name;
-    public $slug;
-    public $short_description;
-    public $description;
-    public $image;
-    public $category_id;
-    public $ingredients_array;
+    public string $name = '';
+    public string $slug = '';
+    public string $short_description = '';
+    public string $description = '';
+    public $image = null;
+    public int $category_id = 0;
+    public array $ingredients_array = [];
+    protected $listeners = ['ingredientsArraySelected'];
 
     public function generateSlug(){
         $this->slug = Str::slug($this->name);
+    }
+
+    public function ingredientsArraySelected($ingredient_ids)
+    {
+        $this->ingredients_array = $ingredient_ids;
     }
 
     public function updated($fields){
@@ -59,6 +65,7 @@ class AdminAddRecipeComponent extends Component
         $recipe->category_id = $this->category_id;
         $recipe->save();
         
+        
         foreach ($this->ingredients_array as $ingredient) {
             RecipeWithIngredients::create([
                 'recipe_id' => $recipe->id,
@@ -67,6 +74,8 @@ class AdminAddRecipeComponent extends Component
         }
         
         session()->flash('message', 'Recipe has been created successfully!');
+
+        return redirect()->route('admin.recipes');
     }
 
     public function render()

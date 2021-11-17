@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Slug</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Recipe Slug" wire:model="slug">
+                                    <input type="text" class="form-control input-md" placeholder="Recipe Slug" wire:model="slug" readonly>
                                     @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                             <div class="form-group" wire:ignore>
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8">
-                                    <select class="form-control js-example-basic-multiple" multiple="multiple" wire:model="ingredients_array" id="select_ingredients">
+                                    <select class="form-control js-example-basic-multiple" multiple="multiple" id="ingredients_array">
                                         @foreach($ingredients as $ingredient)
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
                                         @endforeach
@@ -101,8 +101,15 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
+        $('.js-example-basic-multiple').select2();
+        document.addEventListener('livewire:load', function() {
+            $('#locationUsers').on('select2:close', (e) => {
+                @this.emit('locationUsersSelected', $('#locationUsers').select2('val'));
+            });
+
+            $('#locationUsers').val(@this.get('locationUsers')).trigger('change');
+        });
+    });
     $(function() {
         tinymce.init({
             selector: '#short_description',
