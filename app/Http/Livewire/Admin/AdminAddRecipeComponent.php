@@ -74,6 +74,6 @@ class AdminAddRecipeComponent extends Component
         $categories = FoodCategories::all();
         $ingredients = Ingredient::all();
         
-        return view('livewire.admin.admin-add-recipe-component', ['categories' =>$categories ], ['ingredients' => $ingredients])->layout('layouts.base');
+        return view('livewire.admin.admin-add-recipe-component', ['categories' =>$categories,'ingredients' => $ingredients])->layout('layouts.base');
     }
 }

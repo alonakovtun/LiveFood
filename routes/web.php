@@ -18,7 +18,9 @@ use App\Http\Livewire\DishRecipes;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\RecipeDetailsComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\User\UserAddRecipeComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserRecipeComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +52,9 @@ Route::get('/contact', ContactComponent::class);
 //For User
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
      Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+
+     Route::get('/user/recipes', UserRecipeComponent::class)->name('user.recipes');
+     Route::get('/user/recipes/add', UserAddRecipeComponent::class)->name('user.addrecipe');
 });
 
 //For Admin

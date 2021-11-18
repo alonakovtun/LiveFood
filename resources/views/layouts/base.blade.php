@@ -94,6 +94,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user.recipes') }}" >Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -181,17 +182,17 @@
     <a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
 
     <!-- ALL JS FILES -->
-    <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
     <!-- ALL PLUGINS -->
-    <script src="{{ asset('assets/js/jquery.superslides.min.js') }}"></script>
-    <script src="{{ asset('assets/js/images-loded.min.js') }}"></script>
-    <script src="{{ asset('assets/js/isotope.min.js') }}"></script>
-    <script src="{{ asset('assets/js/baguetteBox.min.js') }}"></script>
-    <script src="{{ asset('assets/js/form-validator.min.js') }}"></script>
-    <script src="{{ asset('assets/js/contact-form-script.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.superslides.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/images-loded.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/isotope.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/baguetteBox.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/form-validator.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/contact-form-script.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/custom.js') }}" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/wdrdh5p7wxth0sddw2md5sh2ld2pequng5bk7rtoe7ufhgvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @livewireScripts

@@ -26,6 +26,14 @@
                             </div>
                             <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#">Add to favourites</a>
                             <div class="inner-blog-detail details-page">
+                            <ul>
+									<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user->name}}</span></li>
+									<li>|</li>
+									<li><i class="zmdi zmdi-time"></i>Time : <span>{{$recipe->created_at}}</span></li>
+								</ul>
+							</div>
+                           
+                            <div class="inner-blog-detail details-page">
                                 {!! $recipe->description !!}
                             </div>
                         </div>
@@ -55,11 +63,11 @@
                                         <img class="img-fluid" src="{{asset('assets/images/recipes') }}/{{$related_recipe->image}}" alt="">
                                     </div>
                                     <div class="recent-info">
-                                        <!-- <ul>
-											<li><i class="zmdi zmdi-account"></i>Posted By : <span>Rubel Ahmed</span></li>
-											<li>|</li>
-											<li><i class="zmdi zmdi-time"></i>Time : <span>11.30 am</span></li>
-										</ul> -->
+                                        <ul>
+                                            <li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user->name}}</span></li>
+                                            <li>|</li>
+                                            <li><i class="zmdi zmdi-time"></i>Time : <span>{{$recipe->created_at}}</span></li>
+										</ul>
 
                                         <h4><a href="{{route('recipe.details',['slug'=>$related_recipe->slug])}}">{{$related_recipe->name}}</a></h4>
                                         <p>{!! $related_recipe->short_description !!}</p>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\FoodCategories;
 use App\Models\Recipe;
 use App\Models\Ingredient;
+use App\Models\User;
 use Livewire\Component;
 
 class RecipeDetailsComponent extends Component
@@ -18,6 +19,7 @@ class RecipeDetailsComponent extends Component
     public function render()
     {
         $categories = FoodCategories::all();
+        $user = User::first();
         $recipe = Recipe::where('slug', $this->slug)->first();
         $ingredients = Ingredient::select('ingredients.name')
             ->leftJoin('recipe_with_ingredients', 'ingredients.id', '=', 'recipe_with_ingredients.ingredient_id')
@@ -29,7 +31,8 @@ class RecipeDetailsComponent extends Component
             ['recipe' => $recipe,
             'ingredients' => $ingredients,
             'related_recipes' => $related_recipes,
-            'categories' => $categories]
+            'categories' => $categories,
+            'user' => $user]
             
         )->layout('layouts.base');
     }

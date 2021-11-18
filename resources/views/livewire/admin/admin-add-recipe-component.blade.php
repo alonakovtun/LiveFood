@@ -75,7 +75,7 @@
                             <div class="form-group" wire:ignore>
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8">
-                                    <select class="form-control js-example-basic-multiple" multiple="multiple" wire:model="ingredients_array" id="select_ingredients">
+                                    <select class="form-control" multiple="multiple" wire:model="ingredients_array" id="select_ingredients">
                                         @foreach($ingredients as $ingredient)
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
                                         @endforeach
@@ -89,7 +89,7 @@
                                 <div class="col-md-8">
                                     <button type="submit" class="btn btn-common">Submit</button>
                                 </div>
-                            </div>
+                            </div> 
                         </form>
                     </div>
                 </div>
@@ -100,9 +100,15 @@
 
 @push('scripts')
 <script>
+   /*  var array = json_encode($ingredients_array);
     $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
+        $('#select_ingredients').select2({
+        });
+       /*  $("#select_ingredients").on("select2:select", function (e) { 
+        var select_val = $(e.currentTarget).val();
+        console.log(select_val)
+        }); 
+    }); */
     $(function() {
         tinymce.init({
             selector: '#short_description',
@@ -125,6 +131,8 @@
                 })
             }
         })
+
+        $('#select_ingredients').select2();
     });
 </script>
 @endpush

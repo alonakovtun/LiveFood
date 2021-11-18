@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\User;
 
-use App\Models\Ingredient;
 use App\Models\Recipe;
 use App\Models\RecipeWithIngredients;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class AdminRecipeComponent extends Component
+class UserRecipeComponent extends Component
 {
     use WithPagination;
     public function deleteRecipe($id){
@@ -19,7 +18,6 @@ class AdminRecipeComponent extends Component
     public function render()
     {
         $recipes = Recipe::paginate(10);
-        $ingredients = RecipeWithIngredients::all();
-        return view('livewire.admin.admin-recipe-component', ['recipes'=>$recipes, 'ingredients'=>$ingredients])->layout('layouts.base');
+        return view('livewire.user.user-recipe-component', ['recipes'=>$recipes])->layout('layouts.base');
     }
 }
