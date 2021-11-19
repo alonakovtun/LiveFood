@@ -72,14 +72,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" wire:ignore>
+                            <div class="form-group">
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8">
-<<<<<<< HEAD
-                                    <select class="form-control" multiple="multiple" wire:model="ingredients_array" id="select_ingredients">
-=======
-                                    <select class="form-control js-example-basic-multiple" multiple="multiple" id="ingredients_array">
->>>>>>> 66639a23c431547b98b7d62fc8b9988d9c9e2461
+                                <select name="skills" multiple="" class="ui fluid dropdown" wire:model="ingredients_array">
                                         @foreach($ingredients as $ingredient)
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
                                         @endforeach
@@ -88,12 +84,30 @@
                                 </div>
                             </div>
 
+                            <!-- 111<div class="form-group col-md-6" wire:ignore>
+                                <label for="manager" class="mb-0 h5">Assign Managers:</label>
+                                <select wire:model="ingredients_array" id="manager" class="select-2" multiple='multiple' data-placeholder=" Assign Managers">
+                                    @foreach($ingredients as $ingredient)
+                                    <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+ -->
+                            <!--  <div class="col d-flex display-inline-block">
+                                <label>Device</label>
+                                <select wire:model="selectedItem" class="form-control contact_devices_multiple" multiple="multiple" data-placeholder="Select" style="width: 100%;">
+                                    @foreach($ingredients as $ingredient)
+                                    <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div> -->
+
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4"></label>
                                 <div class="col-md-8">
                                     <button type="submit" class="btn btn-common">Submit</button>
                                 </div>
-                            </div> 
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -104,7 +118,20 @@
 
 @push('scripts')
 <script>
-   /*  var array = json_encode($ingredients_array);
+    
+    /* 111$('#manager').on('select2:select', function(e) {
+        @this.set('ingredients_array', $('#manager').select2());
+    });
+    $('#manager').on('select2:unselect', function(e) {
+        @this.set('ingredients_array', $('#manager').select2());
+    }); */
+    /* document.addEventListener("livewire:load", () => {
+        Livewire.hook('message.processed', (message, component) => {
+            $('.js-example-basic-multiple').select2()
+
+        });
+    }); */
+    /*  var array = json_encode($ingredients_array);
     $(document).ready(function() {
 
         $('#select_ingredients').select2({
@@ -114,18 +141,16 @@
         console.log(select_val)
         }); 
     }); */
-
-        $('.js-example-basic-multiple').select2();
-        document.addEventListener('livewire:load', function() {
+    /* document.addEventListener('livewire:load', function() {
             $('#locationUsers').on('select2:close', (e) => {
                 @this.emit('locationUsersSelected', $('#locationUsers').select2('val'));
             });
 
             $('#locationUsers').val(@this.get('locationUsers')).trigger('change');
         });
-    });
+    }); */
 
-    $(function() {
+    /* $(function() {
         tinymce.init({
             selector: '#short_description',
             setup: function(editor) {
@@ -146,9 +171,21 @@
                     @this.set('description', d_data);
                 })
             }
-        })
+        }) */
 
-        $('#select_ingredients').select2();
-    });
+    /* $('#select_ingredients').select2(); */
+
+    /*  window.loadContactDeviceSelect2 = () => {
+         $('.contact_devices_multiple').select2().on('change', function() {
+             livewire.emitTo('contact-component', 'selectedItemChange', $(this).val());
+         });
+     }
+     loadContactDeviceSelect2();
+     window.livewire.on('loadContactDeviceSelect2', () => {
+         loadContactDeviceSelect2();
+     }); */
+
+
+    /* }); */
 </script>
 @endpush

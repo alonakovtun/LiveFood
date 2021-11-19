@@ -28,6 +28,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('semantic/dist/semantic.min.css')}}">
 
     @livewireStyles
 
@@ -47,11 +48,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
-					<ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/dish-recipes">Dish Recipes</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="/favourites">Favourites</a></li> -->
-                       <!--  <li class="nav-item dropdown">
+                        <!--  <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <a class="dropdown-item" href="reservation.html">Reservation</a>
@@ -76,11 +77,11 @@
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
-                                    <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}" >Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('admin.categories') }}" >Categories</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('admin.recipes') }}" >Recipes</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('admin.homeslider') }}" >Manage Home Slider</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('admin.users') }}" >Manage Users</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.categories') }}">Categories</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.recipes') }}">Recipes</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.homeslider') }}">Manage Home Slider</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.users') }}">Manage Users</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -94,7 +95,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('user.recipes') }}" >Recipes</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user.recipes') }}">Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -195,6 +196,7 @@
     <script src="{{ asset('assets/js/custom.js') }}" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/wdrdh5p7wxth0sddw2md5sh2ld2pequng5bk7rtoe7ufhgvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{{ asset('semantic/dist/semantic.min.js') }}"></script>
     @livewireScripts
     @stack('scripts')
 </body>

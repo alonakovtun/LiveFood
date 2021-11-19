@@ -21,17 +21,26 @@ class AdminAddRecipeComponent extends Component
     public string $description = '';
     public $image = null;
     public int $category_id = 0;
-    public array $ingredients_array = [];
-    protected $listeners = ['ingredientsArraySelected'];
+    public $ingredients_array = [];
+
+    /* public $selectedItem = [];
+    public function hydrate()
+    {
+        $this->emit('loadContactDeviceSelect2');
+    }
+    public $listeners = [
+        'selectedItemChange',
+    ];
+
+    public function selectedItemChange($value)
+    {
+        dd($value);
+    } */
 
     public function generateSlug(){
         $this->slug = Str::slug($this->name);
     }
 
-    public function ingredientsArraySelected($ingredient_ids)
-    {
-        $this->ingredients_array = $ingredient_ids;
-    }
 
     public function updated($fields){
         $this->validateOnly($fields, [
