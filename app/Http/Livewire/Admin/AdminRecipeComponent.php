@@ -20,6 +20,6 @@ class AdminRecipeComponent extends Component
     {
         $recipes = Recipe::paginate(10);
         $ingredients = RecipeWithIngredients::all();
-        return view('livewire.admin.admin-recipe-component', ['recipes'=>$recipes, 'ingredients'=>$ingredients])->layout('layouts.base');
+        return view('livewire.admin.admin-recipe-component', ['recipes' => $recipes, 'ingredients' => $ingredients])->layout('layouts.base');
     }
 }

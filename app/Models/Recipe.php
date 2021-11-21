@@ -14,7 +14,8 @@ class Recipe extends Model
 
     protected $table = "recipes";
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(FoodCategories::class, 'category_id');
     }
 

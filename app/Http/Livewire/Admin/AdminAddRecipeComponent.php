@@ -23,6 +23,14 @@ class AdminAddRecipeComponent extends Component
     public int $category_id = 0;
     public $ingredients_array = [];
 
+    public array $locationUsers = [];
+protected $listeners = ['locationUsersSelected'];
+
+public function locationUsersSelected($locationUsersValues)
+{
+  $this->locationUsers = $locationUsersValues;
+}
+
     /* public $selectedItem = [];
     public function hydrate()
     {

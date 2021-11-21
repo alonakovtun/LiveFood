@@ -27,7 +27,7 @@
                             <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#">Add to favourites</a>
                             <div class="inner-blog-detail details-page">
                             <ul>
-									<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user->name}}</span></li>
+									<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user}}</span></li>
 									<li>|</li>
 									<li><i class="zmdi zmdi-time"></i>Time : <span>{{$recipe->created_at}}</span></li>
 								</ul>
@@ -43,8 +43,8 @@
                 
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
                     <div class="right-side-blog">
-                        <h3 class="pb-2">Category</h3>
-                        <h4 class="pb-4">{{$recipe->category->name}}</h4>
+                    <h3 class="pb-2">Category</h3>
+                        <h4 class="pb-4">{{$category}}</h4>
                         
                         <h3>Ingredients</h3>
                         <div class="blog-categories">
@@ -54,6 +54,7 @@
                                 @endforeach
                             </ul>
                         </div>
+                        @if(!$related_recipes->isEmpty())
                         <h3>Related recipes</h3>
                         <div class="post-box-blog">
                             <div class="recent-post-box">
@@ -64,7 +65,7 @@
                                     </div>
                                     <div class="recent-info">
                                         <ul>
-                                            <li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user->name}}</span></li>
+                                            <li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user}}</span></li>
                                             <li>|</li>
                                             <li><i class="zmdi zmdi-time"></i>Time : <span>{{$recipe->created_at}}</span></li>
 										</ul>
@@ -76,6 +77,7 @@
                                 @endforeach
                             </div>
                         </div>
+                        @endif
                         <h3>Recent Tag</h3>
                         <div class="blog-tag-box">
                             <ul class="list-inline tag-list">

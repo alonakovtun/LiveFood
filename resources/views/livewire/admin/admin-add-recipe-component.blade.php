@@ -72,16 +72,26 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" wire:ignore>
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8">
-                                <select name="skills" multiple="" class="ui fluid dropdown" wire:model="ingredients_array">
+                                    <select multiple id="choices-multiple-remove-button" wire:model="ingredients_array">
                                         @foreach($ingredients as $ingredient)
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
                                         @endforeach
                                     </select>
 
                                 </div>
+                            </div>
+
+                            <div class="col-md-12 mb-3" wire:ignore>
+                                <label for="locationUsers">Select Users</label>
+                                <select id="locationUsers" class="form-control select2" multiple="multiple">
+                                    <option value="">--select--</option>
+                                    @foreach($ingredients as $ingredient)
+                                    <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <!-- 111<div class="form-group col-md-6" wire:ignore>
@@ -116,9 +126,20 @@
     </div>
 </div>
 
-@push('scripts')
+
+
+
 <script>
-    
+    /* $('.selectpicker').selectpicker(); */
+    //     $(document).ready(function(){
+
+    // var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+    // removeItemButton: true,
+
+    // });
+
+
+    // });
     /* 111$('#manager').on('select2:select', function(e) {
         @this.set('ingredients_array', $('#manager').select2());
     });
@@ -187,5 +208,14 @@
 
 
     /* }); */
+
+    document.addEventListener('livewire:load', function() {
+      /*   $('#locationUsers').on('select2:select', (e) => {
+            @this.emit('locationUsersSelected', $('#locationUsers').select2('val'));
+            $('#locationUsers').val(@this.get('locationUsers')).trigger('change');
+        }); */
+        $('#locationUsers').on('select2:select', (e) => {
+            @this.emit('locationUsersSelected', $('#locationUsers').select2('val'));
+        });
+    });
 </script>
-@endpush
