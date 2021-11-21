@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
+use App\Models\UserRecipe;
 
 class AdminAddRecipeComponent extends Component
 {
@@ -87,6 +88,13 @@ public function locationUsersSelected($locationUsersValues)
             RecipeWithIngredients::create([
                 'recipe_id' => $recipe->id,
                 'ingredient_id' => $ingredient
+            ]);
+        }
+
+        if (!empty($recipe->id)) {
+            UserRecipe::create([
+                'recipe_id' => $recipe->id,
+                'user_id' => \Auth::id()
             ]);
         }
         
