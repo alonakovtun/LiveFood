@@ -72,45 +72,17 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" wire:ignore>
+                            <div class="form-group" >
                                 <label class="col-md-8 control-label h4">Ingredients</label>
-                                <div class="col-md-8">
-                                    <select multiple id="choices-multiple-remove-button" wire:model="ingredients_array">
+                                <div class="col-md-8" wire:ignore>
+                                    <select class="select2 form-control" multiple="multiple"  id="members" >
                                         @foreach($ingredients as $ingredient)
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
                                         @endforeach
                                     </select>
-
+                                    @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
-
-                            <div class="col-md-12 mb-3" wire:ignore>
-                                <label for="locationUsers">Select Users</label>
-                                <select id="locationUsers" class="form-control select2" multiple="multiple">
-                                    <option value="">--select--</option>
-                                    @foreach($ingredients as $ingredient)
-                                    <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <!-- 111<div class="form-group col-md-6" wire:ignore>
-                                <label for="manager" class="mb-0 h5">Assign Managers:</label>
-                                <select wire:model="ingredients_array" id="manager" class="select-2" multiple='multiple' data-placeholder=" Assign Managers">
-                                    @foreach($ingredients as $ingredient)
-                                    <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
- -->
-                            <!--  <div class="col d-flex display-inline-block">
-                                <label>Device</label>
-                                <select wire:model="selectedItem" class="form-control contact_devices_multiple" multiple="multiple" data-placeholder="Select" style="width: 100%;">
-                                    @foreach($ingredients as $ingredient)
-                                    <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div> -->
 
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4"></label>
@@ -129,49 +101,22 @@
 
 
 
+@push('scripts')
 <script>
-    /* $('.selectpicker').selectpicker(); */
-    //     $(document).ready(function(){
 
-    // var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
-    // removeItemButton: true,
-
-    // });
-
-
-    // });
-    /* 111$('#manager').on('select2:select', function(e) {
-        @this.set('ingredients_array', $('#manager').select2());
+    $(function(){
+        $('.select2').select2({
+            placeholder: "Select Ingredients"
+        }).on('change', function(){
+            @this.set('ingredients_array', $(this).val());
+        });
     });
-    $('#manager').on('select2:unselect', function(e) {
-        @this.set('ingredients_array', $('#manager').select2());
-    }); */
-    /* document.addEventListener("livewire:load", () => {
-        Livewire.hook('message.processed', (message, component) => {
-            $('.js-example-basic-multiple').select2()
+    
 
-        });
-    }); */
-    /*  var array = json_encode($ingredients_array);
-    $(document).ready(function() {
+</script>
 
-        $('#select_ingredients').select2({
-        });
-       /*  $("#select_ingredients").on("select2:select", function (e) { 
-        var select_val = $(e.currentTarget).val();
-        console.log(select_val)
-        }); 
-    }); */
-    /* document.addEventListener('livewire:load', function() {
-            $('#locationUsers').on('select2:close', (e) => {
-                @this.emit('locationUsersSelected', $('#locationUsers').select2('val'));
-            });
-
-            $('#locationUsers').val(@this.get('locationUsers')).trigger('change');
-        });
-    }); */
-
-    /* $(function() {
+<!-- <script>
+     $(function() {
         tinymce.init({
             selector: '#short_description',
             setup: function(editor) {
@@ -192,30 +137,9 @@
                     @this.set('description', d_data);
                 })
             }
-        }) */
-
-    /* $('#select_ingredients').select2(); */
-
-    /*  window.loadContactDeviceSelect2 = () => {
-         $('.contact_devices_multiple').select2().on('change', function() {
-             livewire.emitTo('contact-component', 'selectedItemChange', $(this).val());
-         });
-     }
-     loadContactDeviceSelect2();
-     window.livewire.on('loadContactDeviceSelect2', () => {
-         loadContactDeviceSelect2();
-     }); */
-
-
-    /* }); */
-
-    document.addEventListener('livewire:load', function() {
-      /*   $('#locationUsers').on('select2:select', (e) => {
-            @this.emit('locationUsersSelected', $('#locationUsers').select2('val'));
-            $('#locationUsers').val(@this.get('locationUsers')).trigger('change');
-        }); */
-        $('#locationUsers').on('select2:select', (e) => {
-            @this.emit('locationUsersSelected', $('#locationUsers').select2('val'));
-        });
+        })
     });
-</script>
+
+</script> -->
+@endpush
+

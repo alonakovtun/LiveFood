@@ -24,28 +24,6 @@ class AdminAddRecipeComponent extends Component
     public int $category_id = 0;
     public $ingredients_array = [];
 
-    public array $locationUsers = [];
-protected $listeners = ['locationUsersSelected'];
-
-public function locationUsersSelected($locationUsersValues)
-{
-  $this->locationUsers = $locationUsersValues;
-}
-
-    /* public $selectedItem = [];
-    public function hydrate()
-    {
-        $this->emit('loadContactDeviceSelect2');
-    }
-    public $listeners = [
-        'selectedItemChange',
-    ];
-
-    public function selectedItemChange($value)
-    {
-        dd($value);
-    } */
-
     public function generateSlug(){
         $this->slug = Str::slug($this->name);
     }
@@ -58,7 +36,8 @@ public function locationUsersSelected($locationUsersValues)
             'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'ingredients_array' => 'required'
         ]);
     }
 
@@ -69,7 +48,8 @@ public function locationUsersSelected($locationUsersValues)
             'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'ingredients_array' => 'required'
         
         ]);
         $recipe = new Recipe();

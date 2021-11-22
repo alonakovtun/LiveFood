@@ -24,28 +24,6 @@ class UserAddRecipeComponent extends Component
     public int $category_id = 0;
     public $ingredients_array = [];
 
-    public array $locationUsers = [];
-    protected $listeners = ['locationUsersSelected'];
-
-    public function locationUsersSelected($locationUsersValues)
-    {
-    $this->locationUsers = $locationUsersValues;
-    }
-
-    /* public $selectedItem = [];
-    public function hydrate()
-    {
-        $this->emit('loadContactDeviceSelect2');
-    }
-    public $listeners = [
-        'selectedItemChange',
-    ];
-
-    public function selectedItemChange($value)
-    {
-        dd($value);
-    } */
-
     public function generateSlug(){
         $this->slug = Str::slug($this->name);
     }
