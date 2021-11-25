@@ -20,7 +20,7 @@
                             {{Session::get('message')}}
                         </div>
                         @endif
-                        <table class="table tabel-striped">
+                        <table class="table tabel-striped text-center">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -40,7 +40,7 @@
                                     <td>{{$recipe->category->name}}</td>
                                     <td>{{$recipe->created_at}}</td>
                                     <td>
-                                        <a href="{{route('admin.editrecipe',['recipe_slug'=>$recipe->slug])}}" >
+                                        <a href="{{route('user.editrecipe',['recipe_slug'=>$recipe->slug])}}" >
                                             <i class="fa fa-edit fa-2x"></i>
                                         </a>
                                         <a href="#" onclick="confirm('Are you sure, You want to delete this recipe?') || event.stopImmediatePropagation()" wire:click.prevent="deleteRecipe({{$recipe->id}})">

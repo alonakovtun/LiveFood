@@ -23,6 +23,7 @@ class AdminEditUserComponent extends Component
 
         $user->save();
         session()->flash('message', 'User role has been updated successfully!');
+        return redirect()->route('admin.users');
     }
 
     public function render()

@@ -42,7 +42,8 @@ class AdminEditCategoryComponent extends Component
         $category->slug = $this->slug;
         $category->save();
 
-        session()->flash('message', 'Food Category has been updated successfully!');
+        session()->flash('message', 'Category has been updated successfully!');
+        return redirect()->route('admin.categories');
 
     }
 

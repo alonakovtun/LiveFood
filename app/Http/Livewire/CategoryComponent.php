@@ -6,6 +6,7 @@ use App\Models\Recipe;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\FoodCategories;
+use Illuminate\Http\Request;
 
 class CategoryComponent extends Component
 {
@@ -18,6 +19,11 @@ class CategoryComponent extends Component
         $this->pagesize = 6;
         $this->category_slug = $category_slug;
     }
+
+    function setActive($path)
+{
+    return Request::is($path . '*') ? ' class=active' :  '';
+}
 
     use WithPagination;
     public function render()

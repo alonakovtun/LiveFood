@@ -1171,7 +1171,7 @@ button:focus{
 	background: #d65106;
 	color: #ffffff;
 }
-.top-navbar .navbar-light .navbar-nav .nav-item.active .nav-link{
+.top-navbar .navbar-light .navbar-nav .nav-item .nav-link.active{
 	background: #d65106;
 	color: #ffffff;
 	border-radius: 4px;
@@ -2492,13 +2492,22 @@ svg{
   padding-bottom: 0;
 }
 
-.recipe-favorite .fa{
-  font-size: 25px;
-  transition: color .1s ease-in-out;
-  
+.recipe-go{
+  position: absolute;
+  left: 0;
+  z-index: 99;
+  left: 15px;
+  text-align: right;
+  padding-bottom: 0;
 }
 
-.recipe-favorite .fa:hover{
+.recipe-favorite .fa{
+  font-size: 25px;
+  transition: content .1s ease-in-out;
+}
+
+.recipe-favorite .fa:hover.fa-heart-o:before{
+  content: "\f004";
   color: #eb130cc9;
 }
 
@@ -2513,4 +2522,16 @@ svg{
 
 .select2-search__field::placeholder{
   font-size: 1rem;
+}
+
+.table_ingredients{
+  width: 60%;
+  margin: 0 auto;
+}
+
+
+.add:hover
+{
+  cursor: pointer;
+  background-color: #360581;
 }

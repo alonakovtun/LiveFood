@@ -2,14 +2,17 @@
 
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminAddIngredientComponent;
 use App\Http\Livewire\Admin\AdminAddRecipeComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminEditIngredientComponent;
 use App\Http\Livewire\Admin\AdminEditRecipeComponent;
 use App\Http\Livewire\Admin\AdminEditUserComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminIngredientComponent;
 use App\Http\Livewire\Admin\AdminRecipeComponent;
 use App\Http\Livewire\Admin\AdminUsersComponent;
 use App\Http\Livewire\CategoryComponent;
@@ -20,6 +23,7 @@ use App\Http\Livewire\RecipeDetailsComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\User\UserAddRecipeComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserEditRecipeComponent;
 use App\Http\Livewire\User\UserRecipeComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +59,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
      Route::get('/user/recipes', UserRecipeComponent::class)->name('user.recipes');
      Route::get('/user/recipes/add', UserAddRecipeComponent::class)->name('user.addrecipe');
+     Route::get('/user/recipe/edit/{recipe_slug}', UserEditRecipeComponent::class)->name('user.editrecipe');
 });
 
 //For Admin
@@ -64,6 +69,10 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+
+    Route::get('/admin/ingredients', AdminIngredientComponent::class)->name('admin.ingredients');
+    Route::get('/admin/ingredient/add', AdminAddIngredientComponent::class)->name('admin.addingredient');
+    Route::get('/admin/ingredient/edit/{ingredient_id}', AdminEditIngredientComponent::class)->name('admin.editingredient');
 
     Route::get('/admin/recipes', AdminRecipeComponent::class)->name('admin.recipes');
     Route::get('/admin/recipe/add', AdminAddRecipeComponent::class)->name('admin.addrecipe');

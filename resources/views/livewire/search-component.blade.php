@@ -26,7 +26,7 @@
                         <div class="wrap-right mb-20">
 
                             <div class="sort-item orderby ">
-                                <select name="orderby" class="use-chosen" wire:model="sorting">
+                                <select name="orderby" class="use-chosen custom-select" wire:model="sorting">
                                     <option value="default" selected="selected">Default sorting</option>
                                     <option value="date-new">Sort by newness</option>
                                     <option value="date-old">Sort by oldest</option>
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="sort-item product-per-page">
-                                <select name="post-per-page" class="use-chosen" wire:model="pagesize">
+                                <select name="post-per-page" class="use-chosen custom-select" wire:model="pagesize">
                                     <option value="6" selected="selected">6 per page</option>
                                     <option value="9">9 per page</option>
                                     <option value="12">12 per page</option>
@@ -55,6 +55,7 @@
             <div class="row inner-menu-box">
                 <div class="col-3">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link" href="/dish-recipes">All</a>
                         @foreach($categories as $category)
                         <a class="nav-link" href="{{ route('recipe.category', ['category_slug'=>$category->slug])}}">{{$category->name}}</a>
                         @endforeach
@@ -72,7 +73,11 @@
                                     <img src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" class="img-fluid" alt="{{$recipe->name}}">
                                     <div class="why-text">
                                         <h1><a href="{{route('recipe.details',['slug'=>$recipe->slug])}}">{{$recipe->name}}</a></h1>
+                                        <div class="recipe-favorite">
+                                            <a href="#"><i class="fa fa-heart-o"></i></a>
+                                        </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                             @endforeach

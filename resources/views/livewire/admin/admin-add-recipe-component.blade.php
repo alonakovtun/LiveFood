@@ -1,5 +1,4 @@
 <div class="pt-100">
-    @this
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -15,11 +14,6 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        @if(Session::has('message'))
-                        <div class="alert alert-success" role="alert">
-                            {{Session::get('message')}}
-                        </div>
-                        @endif
                         <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="addRecipe">
                             @csrf
                             <div class="form-group">
@@ -64,7 +58,6 @@
                                 <label class="col-md-8 control-label h4">Category</label>
                                 <div class="col-md-8">
                                     <select class="form-control" wire:model="category_id">
-                                        <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
@@ -84,6 +77,16 @@
                                     @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
+
+                           <!--  <div class="form-group">
+                                <label class="col-md-8 control-label h4">Ingredients</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control input-md" placeholder="Ingredients" >
+                                    <div id="input0"></div>
+                                    <div class="add" onclick="addInput()">+++</div>
+                                    @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4"></label>
@@ -137,5 +140,5 @@
         })
     });
 
-</script>
-@endpush -->
+</script>-->
+@endpush 

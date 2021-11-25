@@ -48,34 +48,17 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/dish-recipes">Dish Recipes</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="/favourites">Favourites</a></li> -->
-                        <!--  <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="reservation.html">Reservation</a>
-                                <a class="dropdown-item" href="stuff.html">Stuff</a>
-                                <a class="dropdown-item" href="gallery.html">Gallery</a>
-                            </div>
-                        </li> -->
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="blog.html">blog</a>
-                                <a class="dropdown-item" href="blog-details.html">blog Single</a>
-                            </div>
-                        </li> -->
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-
-
                         @if(Route::has('login'))
                         @auth
                         @if(Auth::user()->utype === 'ADM')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                            <nav class="dropdown-menu" aria-labelledby="dropdown-a" id="nav">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.categories') }}">Categories</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.ingredients') }}">Ingredients</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.recipes') }}">Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.homeslider') }}">Manage Home Slider</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.users') }}">Manage Users</a></li>
@@ -84,7 +67,7 @@
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                     @csrf
                                 </form>
-                            </div>
+                            </nav>
                         </li>
                         @else
                         <li class="nav-item dropdown">
@@ -138,13 +121,13 @@
                             <div class="clearfix"></div>
                         </form>
                     </div>
-                    <ul class="list-inline f-social">
+                   <!--  <ul class="list-inline f-social">
                         <li class="list-inline-item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3>Contact information</h3>
@@ -177,7 +160,7 @@
     </footer>
     <!-- End Footer -->
 
-    <a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
     <!-- ALL JS FILES -->
     <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
@@ -191,6 +174,7 @@
     <script src="{{ asset('assets/js/form-validator.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/contact-form-script.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/custom.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/function.js') }}" type="text/javascript"></script>
     <script src="https://cdn.tiny.cloud/1/wdrdh5p7wxth0sddw2md5sh2ld2pequng5bk7rtoe7ufhgvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireScripts

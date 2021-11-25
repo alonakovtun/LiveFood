@@ -79,7 +79,6 @@ class AdminAddRecipeComponent extends Component
         }
         
         session()->flash('message', 'Recipe has been created successfully!');
-
         return redirect()->route('admin.recipes');
     }
 

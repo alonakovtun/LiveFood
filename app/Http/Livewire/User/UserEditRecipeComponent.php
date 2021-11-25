@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\User;
 
 use App\Models\Recipe;
 use Livewire\Component;
@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use App\Models\FoodCategories;
 
-class AdminEditRecipeComponent extends Component
+class UserEditRecipeComponent extends Component
 {
     use WithFileUploads;
     public $name;
@@ -73,12 +73,12 @@ class AdminEditRecipeComponent extends Component
         $recipe->save();
 
         session()->flash('message', 'Recipe has been updated successfully!');
-        return redirect()->route('admin.recipes');
+        return redirect()->route('user.recipes');
     }
 
     public function render()
     {
         $categories = FoodCategories::all();
-        return view('livewire.admin.admin-edit-recipe-component', ['categories'=>$categories])->layout('layouts.base');
+        return view('livewire.user.user-edit-recipe-component', ['categories'=>$categories])->layout('layouts.base');
     }
 }

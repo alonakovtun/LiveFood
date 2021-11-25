@@ -17,7 +17,7 @@
                             {{Session::get('message')}}
                         </div>
                     @endif
-                        <table class="table tabel-striped">
+                        <table class="table tabel-striped text-center">
                             <thead>
                                 <tr>
                                     <th>Id</th>

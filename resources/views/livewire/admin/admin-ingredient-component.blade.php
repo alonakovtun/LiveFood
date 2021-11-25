@@ -6,10 +6,10 @@
                     <div class="panel-heading mb-3">
                         <div class="row">
                             <div class="col-md-6 my-auto">
-                                <h1>All Recipes</h1>
+                                <h1>All Ingredients</h1>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.addrecipe')}}" class="btn btn-lg btn-circle btn-outline-new-white pull-right">Add New Recipe</a>
+                                <a href="{{route('admin.addingredient')}}" class="btn btn-lg btn-circle btn-outline-new-white pull-right">Add New Ingredient</a>
                             </div>
                         </div>
                     </div>
@@ -20,30 +20,24 @@
                             {{Session::get('message')}}
                         </div>
                         @endif
-                        <table class="table tabel-striped text-center">
+                        <table class="table tabel-striped table_ingredients text-center">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Image</th>
-                                    <th>Recipe Name</th>
-                                    <th>Category</th>
-                                    <th>Date</th>
+                                    <th>Ingredients Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($recipes as $recipe)
+                                @foreach($ingredients as $ingredient)
                                 <tr>
-                                    <td>{{$recipe->id}}</td>
-                                    <td><img src="{{ asset('assets/images/recipes')}}/{{$recipe->image}}" width="60"></td>
-                                    <td>{{$recipe->name}}</td>
-                                    <td>{{$recipe->category->name}}</td>
-                                    <td>{{$recipe->created_at}}</td>
+                                    <td>{{$ingredient->id}}</td>
+                                    <td>{{$ingredient->name}}</td>
                                     <td>
-                                        <a href="{{route('admin.editrecipe',['recipe_slug'=>$recipe->slug])}}" >
+                                        <a href="{{route('admin.editingredient',['ingredient_id'=>$ingredient->id])}}" >
                                             <i class="fa fa-edit fa-2x"></i>
                                         </a>
-                                        <a href="#" onclick="confirm('Are you sure, You want to delete this recipe?') || event.stopImmediatePropagation()" wire:click.prevent="deleteRecipe({{$recipe->id}})">
+                                        <a href="#" onclick="confirm('Are you sure, You want to delete this ingredient?') || event.stopImmediatePropagation()" wire:click.prevent="deleteIngredient({{$ingredient->id}})">
                                             <i class="fa fa-times fa-2x"></i>
                                         </a>
                                     </td>
@@ -51,7 +45,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$recipes->links()}}
+                        {{$ingredients->links()}}
                     </div>
                 </div>
             </div>

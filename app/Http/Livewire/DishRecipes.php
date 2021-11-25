@@ -6,6 +6,7 @@ use App\Models\Recipe;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\FoodCategories;
+use Illuminate\Http\Request;
 
 class DishRecipes extends Component
 {
@@ -17,9 +18,11 @@ class DishRecipes extends Component
         $this->pagesize = 6;
     }
 
-    public function addToFavorite(){
-        
+    function setActive($path)
+    {
+        return Request::is($path . '*') ? ' class=active' :  '';
     }
+    
 
     use WithPagination;
     public function render()
