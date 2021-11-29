@@ -68,6 +68,7 @@
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
+                                   
                                     @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
@@ -80,6 +81,10 @@
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
                                         @endforeach
                                     </select>
+                                    <div class="mt-2 d-flex justify-content-between">
+                                        <p class="ml-2">Don't have a required ingredient?</p> 
+                                        <a class="text-primary mr-2 font-weight-bold" href="{{ route('user.addingredient') }}">Add an ingredient!</a>
+                                    </div>
                                     @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>

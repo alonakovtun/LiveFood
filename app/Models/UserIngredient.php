@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class UserIngredient extends Model
+{
+    use HasFactory;
+
+    protected $table = "user_ingredients";
+    protected $fillable = ['ingredient_id', 'user_id'];
+    public $timestamps = false;
+}

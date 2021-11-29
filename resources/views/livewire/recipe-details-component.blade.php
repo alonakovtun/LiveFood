@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         @endif
-                        <h3>Recent Tag</h3>
+                        <!-- <h3>Recent Tag</h3>
                         <div class="blog-tag-box">
                             <ul class="list-inline tag-list">
                                 <li class="list-inline-item"><a href="#">Food</a></li>
@@ -88,7 +88,7 @@
                                 <li class="list-inline-item"><a href="#">Bootstrap4</a></li>
                                 <li class="list-inline-item"><a href="#">Fashion</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

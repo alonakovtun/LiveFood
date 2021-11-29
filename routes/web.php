@@ -21,9 +21,11 @@ use App\Http\Livewire\DishRecipes;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\RecipeDetailsComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\User\UserAddIngredientsComponent;
 use App\Http\Livewire\User\UserAddRecipeComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\UserEditRecipeComponent;
+use App\Http\Livewire\User\UserIngredientsComponent;
 use App\Http\Livewire\User\UserRecipeComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +62,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
      Route::get('/user/recipes', UserRecipeComponent::class)->name('user.recipes');
      Route::get('/user/recipes/add', UserAddRecipeComponent::class)->name('user.addrecipe');
      Route::get('/user/recipe/edit/{recipe_slug}', UserEditRecipeComponent::class)->name('user.editrecipe');
+
+     Route::get('/user/ingredients', UserIngredientsComponent::class)->name('user.ingredients');
+     Route::get('/user/ingredients/add', UserAddIngredientsComponent::class)->name('user.addingredient');
 });
 
 //For Admin

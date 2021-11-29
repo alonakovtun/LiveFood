@@ -66,22 +66,26 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8" wire:ignore>
-                                    <select class="select2 form-control" multiple="multiple"  id="members" placeholder="Select Ingredients">
+                                    <select class="select2 form-control" multiple="multiple" id="members" placeholder="Select Ingredients">
                                         @foreach($ingredients as $ingredient)
                                         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
                                         @endforeach
                                     </select>
+                                    <div class="mt-2 d-flex justify-content-between">
+                                        <p class="ml-2">Don't have a required ingredient?</p> 
+                                        <a class="text-primary mr-2 font-weight-bold" href="{{ route('admin.addingredient') }}">Add an ingredient!</a>
+                                    </div>
                                     @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
 
-                           <!--  <div class="form-group">
+                            <!--  <div class="form-group">
                                 <label class="col-md-8 control-label h4">Ingredients</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Ingredients" >
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md hhhhhhh" placeholder="Ingredients">
                                     <div id="input0"></div>
                                     <div class="add" onclick="addInput()">+++</div>
                                     @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
@@ -106,13 +110,12 @@
 
 @push('scripts')
 <script>
-
-    $(function(){
-        $('.select2').select2().on('change', function(){
+    /*  @this.set('ingredients_array', $('.hhhhhhh').val()); */
+    $(function() {
+        $('.select2').select2().on('change', function() {
             @this.set('ingredients_array', $(this).val());
         });
     });
-    
 </script>
 
 <!-- <script>
@@ -141,4 +144,4 @@
     });
 
 </script>-->
-@endpush 
+@endpush

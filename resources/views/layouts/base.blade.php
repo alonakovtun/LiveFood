@@ -76,6 +76,7 @@
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user.recipes') }}">Recipes</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user.ingredients') }}">Ingredients</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">

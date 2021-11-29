@@ -1,29 +1,30 @@
-<div id="slides" class="cover-slides"><!-- Start slides -->
-		<ul class="slides-container">
-			@foreach($sliders as $slider)
-			<li class="text-left">
-				<img src="{{ asset('assets/images/sliders') }}/{{$slider->image}}" alt="{{$slider->title}}"  >
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h1 class="m-b-20">{{$slider->title}}</h1>
-							<p class="m-b-40">{{$slider->subtitle}}</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{{$slider->link}}">Go</a></p>
-						</div>
+<div id="slides" class="cover-slides">
+	<!-- Start slides -->
+	<ul class="slides-container">
+		@foreach($sliders as $slider)
+		<li class="text-left">
+			<img src="{{ asset('assets/images/sliders') }}/{{$slider->image}}" alt="{{$slider->title}}">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="m-b-20">{{$slider->title}}</h1>
+						<p class="m-b-40">{{$slider->subtitle}}</p>
+						<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{{$slider->link}}">Go</a></p>
 					</div>
 				</div>
-			</li>
-			@endforeach
-		</ul>
-		<div class="slides-navigation">
-			<a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-			<a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-		</div>
+			</div>
+		</li>
+		@endforeach
+	</ul>
+	<div class="slides-navigation">
+		<a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		<a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
 	</div>
-	<!-- End slides -->
-	
-	<!-- Start About -->
-	<!-- <div class="about-section-box">
+</div>
+<!-- End slides -->
+
+<!-- Start About -->
+<!-- <div class="about-section-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
@@ -41,42 +42,72 @@
 			</div>
 		</div>
 	</div> -->
-	<!-- End About -->
-	
-	<!-- Start QT -->
-	<div class="qt-box qt-background">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 ml-auto mr-auto text-center">
-					<!-- <p class="lead ">
+<!-- End About -->
+
+<!-- Start QT -->
+<div class="qt-box qt-background">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 ml-auto mr-auto text-center">
+				<!-- <p class="lead ">
 						" Cooking is a gift from the gods. Spices are a gift from the devil "
 					</p> -->
-					<!-- <span class="lead">Michael Strahan</span> -->
+				<!-- <span class="lead">Michael Strahan</span> -->
 
-					<p class="lead ">
-						" There is no sincerer love than the love of food "
-					</p>
-					<span class="lead">George Bernard Shaw</span>
+				<p class="lead ">
+					" There is no sincerer love than the love of food "
+				</p>
+				<span class="lead">George Bernard Shaw</span>
 
-					
-				</div>
+
 			</div>
 		</div>
 	</div>
-	<!-- End QT -->
-	
-	<!-- Start Gallery -->
-	<div class="gallery-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Gallery</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-					</div>
+</div>
+<!-- End QT -->
+
+<!-- Start Gallery -->
+<div class="gallery-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="heading-title text-center">
+					<h2>Category</h2>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
 				</div>
 			</div>
-			<div class="tz-gallery">
+		</div>
+		
+		<div class="col">
+			<div class="tab-content" id="v-pills-tabContent">
+				<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+					@if($categories->count()>0)
+					<div class="row">
+						@foreach($categories as $category)
+						<div class="col-lg-4 col-md-6 special-grid drinks">
+							<div class="gallery-single fix">
+							<img src="{{asset('assets/images/gallery-img-05.jpg')}}" class="img-fluid" alt="{{$category->name}}" style=" width: 100%!important;">
+								<div class="why-text">
+									
+									<div class=" ">
+										<a class="recipe-go" href="{{route('recipe.category', ['category_slug'=>$category->slug])}}">
+										<h1 class="text-dark font-weight-light">{{$category->name}}</h1>
+										</a>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						@endforeach
+					</div>
+					@else
+					<h1>No Recipes</h1>
+					@endif
+
+				</div>
+			</div>
+		</div>
+		<!-- <div class="tz-gallery">
 				<div class="row">
 					<div class="col-sm-12 col-md-4 col-lg-4">
 						<a class="lightbox" href="{{ asset('assets/images/gallery-img-01.jpg') }}">
@@ -109,13 +140,13 @@
 						</a>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div> -->
 	</div>
-	<!-- End Gallery -->
-	
-	<!-- Start Customer Reviews -->
-	<!-- <div class="customer-reviews-box">
+</div>
+<!-- End Gallery -->
+
+<!-- Start Customer Reviews -->
+<!-- <div class="customer-reviews-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -167,10 +198,10 @@
 			</div>
 		</div>
 	</div> -->
-	<!-- End Customer Reviews -->
-	
-	<!-- Start Contact info -->
-	<!-- <div class="contact-imfo-box">
+<!-- End Customer Reviews -->
+
+<!-- Start Contact info -->
+<!-- <div class="contact-imfo-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 arrow-right">
@@ -203,4 +234,4 @@
 			</div>
 		</div>
 	</div> -->
-	<!-- End Contact info -->
+<!-- End Contact info -->
