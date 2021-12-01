@@ -20,24 +20,22 @@
                         <table class="table tabel-striped text-center">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Password</th>
+                                    <th class="hide_row">Email</th>
+                                    <th class="hide_row-first">Password</th>
                                     <th>Role</th>
-                                    <th>Date</th>
+                                    <th class="hide_row">Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($users as $user)
                                 <tr>
-                                    <td>{{$user->id}}</td>
                                     <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->password}}</td>
-                                    <td>{{$user->utype}}</td>
-                                    <td>{{$user->created_at}}</td>
+                                    <td class="hide_row">{{$user->email}}</td>
+                                    <td class="hide_row-first">{{$user->password}}</td>
+                                    <td >{{$user->utype}}</td>
+                                    <td class="hide_row">{{$user->created_at}}</td>
                                     <td>
                                         <a href="{{route('admin.edituser',['user_id'=>$user->id])}}">
                                             <i class="fa fa-edit fa-2x"></i>

@@ -23,7 +23,6 @@
                         <table class="table tabel-striped text-center">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Category Name</th>
                                     <th>Slug</th>
                                     <th>Action</th>
@@ -32,7 +31,6 @@
                             <tbody>
                                 @foreach($categories as $category)
                                 <tr>
-                                    <td>{{$category->id}}</td>
                                     <td>{{$category->name}}</td>
                                     <td>{{$category->slug}}</td>
                                     <td>

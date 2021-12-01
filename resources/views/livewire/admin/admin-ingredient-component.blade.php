@@ -23,7 +23,6 @@
                         <table class="table tabel-striped table_ingredients text-center">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Ingredients Name</th>
                                     <th>Action</th>
                                 </tr>
@@ -31,7 +30,6 @@
                             <tbody>
                                 @foreach($ingredients as $ingredient)
                                 <tr>
-                                    <td>{{$ingredient->id}}</td>
                                     <td>{{$ingredient->name}}</td>
                                     <td>
                                         <a href="{{route('admin.editingredient',['ingredient_id'=>$ingredient->id])}}" >

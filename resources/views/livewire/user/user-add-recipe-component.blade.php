@@ -36,30 +36,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-8 control-label h4">Short Description</label>
-                                <div class="col-md-8" wire:ignore>
-                                    <input type="text" class="form-control input-md" id="short_description" placeholder="Short Description" wire:model="short_description">
-                                    @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-8 control-label h4">Description</label>
-                                <div class="col-md-8" wire:ignore>
-                                    <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
-                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-8 control-label h4">Recipe Image</label>
-                                <div class="col-md-8">
-                                    <input type="file" class="input-file" wire:model="image">
-                                    @error('image') <p class="text-danger">{{$message}}</p> @enderror
-                                    @if($image)
-                                    <img src="{{$image->temporaryUrl()}}" width="120">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-8 control-label h4">Category</label>
                                 <div class="col-md-8">
                                     <select class="form-control" wire:model="category_id">
@@ -72,7 +48,6 @@
                                     @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
-
                             <div class="form-group" >
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8" wire:ignore>
@@ -89,6 +64,30 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Short Description</label>
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md" id="short_description" placeholder="Short Description" wire:model="short_description">
+                                    @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Description</label>
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
+                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Recipe Image</label>
+                                <div class="col-md-8">
+                                    <input type="file" class="input-file img-w mb-2" wire:model="image">
+                                    @error('image') <p class="text-danger">{{$message}}</p> @enderror
+                                    @if($image)
+                                    <img src="{{$image->temporaryUrl()}}" width="120">
+                                    @endif
+                                </div>
+                            </div>                            
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4"></label>
                                 <div class="col-md-8">

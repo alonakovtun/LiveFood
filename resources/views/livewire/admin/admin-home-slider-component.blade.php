@@ -23,7 +23,6 @@
                         <table class="table tabel-striped text-center">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Subtitle</th>
@@ -36,7 +35,6 @@
                             <tbody>
                                 @foreach($sliders as $slider)
                                 <tr>
-                                    <td>{{$slider->id}}</td>
                                     <td><img src="{{ asset('assets/images/sliders')}}/{{$slider->image}}" width="120" alt=""></td>
                                     <td>{{$slider->title}}</td>
                                     <td>{{$slider->subtitle}}</td>

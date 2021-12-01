@@ -31,32 +31,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-8 control-label h4">Short Description</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" id="short_description" placeholder="Short Description" wire:model="short_description">
-                                    @error('short_description') <p class="text-danger">{{$message}}</p>  @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-8 control-label h4">Description</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
-                                    @error('description') <p class="text-danger">{{$message}}</p>  @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-8 control-label h4">Recipe Image</label>
-                                <div class="col-md-8">
-                                    <input type="file" class="input-file" wire:model="newimage">
-                                    @if($newimage)
-                                    <img src="{{$newimage->temporaryUrl()}}" width="120">
-                                    @else
-                                    <img src="{{asset('assets/images/recipes')}}/{{$image}}" width="120">
-                                    @endif
-                                    @error('newimage') <p class="text-danger">{{$message}}</p>  @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-8 control-label h4">Category</label>
                                 <div class="col-md-8">
                                    <select class="form-control" wire:model="category_id">
@@ -66,6 +40,32 @@
                                        @endforeach
                                    </select>
                                    @error('category_id') <p class="text-danger">{{$message}}</p>  @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Short Description</label>
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md" id="short_description" placeholder="Short Description" wire:model="short_description">
+                                    @error('short_description') <p class="text-danger">{{$message}}</p>  @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Description</label>
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
+                                    @error('description') <p class="text-danger">{{$message}}</p>  @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Recipe Image</label>
+                                <div class="col-md-8">
+                                    <input type="file" class="input-file img-w mb-2" wire:model="newimage">
+                                    @if($newimage)
+                                    <img src="{{$newimage->temporaryUrl()}}" width="120">
+                                    @else
+                                    <img src="{{asset('assets/images/recipes')}}/{{$image}}" width="120">
+                                    @endif
+                                    @error('newimage') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             

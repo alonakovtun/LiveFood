@@ -21,31 +21,32 @@
                 <div class="col-xl-8 col-lg-8 col-12">
                     <div class="blog-inner-details-page">
                         <div class="blog-inner-box">
+                            <div class="inner-blog-detail details-page pt-0 pb-1 pl-0">
+                                <ul>
+                                    <li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user}}</span></li>
+                                    <li>|</li>
+                                    <li><i class="zmdi zmdi-time"></i>Time : <span>{{$recipe->created_at}}</span></li>
+                                </ul>
+                            </div>
                             <div class="side-blog-img">
                                 <img class="img-fluid" src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" alt="{{$recipe->name}}">
                             </div>
                             <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#">Add to favourites</a>
-                            <div class="inner-blog-detail details-page">
-                            <ul>
-									<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user}}</span></li>
-									<li>|</li>
-									<li><i class="zmdi zmdi-time"></i>Time : <span>{{$recipe->created_at}}</span></li>
-								</ul>
-							</div>
-                           
-                            <div class="inner-blog-detail details-page">
+
+
+                            <div class="inner-blog-detail details-page pt-2">
                                 {!! $recipe->description !!}
                             </div>
                         </div>
-                        @comments(['model' => $recipe])
+
                     </div>
                 </div>
-                
+
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
                     <div class="right-side-blog">
-                    <h3 class="pb-2">Category</h3>
+                        <h3 class="pb-2">Category</h3>
                         <h4 class="pb-4">{{$category}}</h4>
-                        
+
                         <h3>Ingredients</h3>
                         <div class="blog-categories">
                             <ul>
@@ -68,7 +69,7 @@
                                             <li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user}}</span></li>
                                             <li>|</li>
                                             <li><i class="zmdi zmdi-time"></i>Time : <span>{{$recipe->created_at}}</span></li>
-										</ul>
+                                        </ul>
 
                                         <h4><a href="{{route('recipe.details',['slug'=>$related_recipe->slug])}}">{{$related_recipe->name}}</a></h4>
                                         <p>{!! $related_recipe->short_description !!}</p>
@@ -90,6 +91,9 @@
                             </ul>
                         </div> -->
                     </div>
+                </div>
+                <div class="col-xl-8 col-lg-8 col-12">
+                    @comments(['model' => $recipe])
                 </div>
 
             </div>

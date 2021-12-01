@@ -23,22 +23,20 @@
                         <table class="table tabel-striped text-center">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Image</th>
                                     <th>Recipe Name</th>
                                     <th>Category</th>
-                                    <th>Date</th>
+                                    <th class="hide_row">Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($recipes as $recipe)
                                 <tr>
-                                    <td>{{$recipe->id}}</td>
                                     <td><img src="{{ asset('assets/images/recipes')}}/{{$recipe->image}}" width="60"></td>
                                     <td>{{$recipe->name}}</td>
                                     <td>{{$recipe->category->name}}</td>
-                                    <td>{{$recipe->created_at}}</td>
+                                    <td class="hide_row">{{$recipe->created_at}}</td>
                                     <td>
                                         <a href="{{route('admin.editrecipe',['recipe_slug'=>$recipe->slug])}}" >
                                             <i class="fa fa-edit fa-2x"></i>

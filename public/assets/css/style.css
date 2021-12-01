@@ -2535,3 +2535,27 @@ svg{
   cursor: pointer;
   background-color: #360581;
 }
+
+.all_placeholder::placeholder, 
+.select2-search__field::placeholder{
+  color:#495057;
+  opacity: 0.5;
+}
+
+
+@media only screen and (max-width: 1202px) {
+  .hide_row-first{
+  display: none;
+  }
+
+  .img-w{
+    width: 90%
+  }
+  
+}
+
+@media only screen and (max-width: 762px) {
+  .hide_row{
+  display: none;
+  }
+}

@@ -19,45 +19,22 @@
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Name</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Recipe Name" wire:model="name" wire:keyup="generateSlug">
+                                    <input type="text" class="form-control all_placeholder" placeholder="Crisp Cookies" wire:model="name" wire:keyup="generateSlug">
                                     @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Slug</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Recipe Slug" wire:model="slug" readonly>
+                                    <input type="text" class="form-control input-md all_placeholder" placeholder="Recipe Slug" wire:model="slug" readonly>
                                     @error('slug') <p class="text-danger">{{$message}}</p> @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-8 control-label h4">Short Description</label>
-                                <div class="col-md-8" wire:ignore>
-                                    <input type="text" class="form-control input-md" id="short_description" placeholder="Short Description" wire:model="short_description">
-                                    @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-8 control-label h4">Description</label>
-                                <div class="col-md-8" wire:ignore>
-                                    <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
-                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-8 control-label h4">Recipe Image</label>
-                                <div class="col-md-8">
-                                    <input type="file" class="input-file" wire:model="image">
-                                    @error('image') <p class="text-danger">{{$message}}</p> @enderror
-                                    @if($image)
-                                    <img src="{{$image->temporaryUrl()}}" width="120">
-                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Category</label>
                                 <div class="col-md-8">
                                     <select class="form-control" wire:model="category_id">
+                                    <option value="" disabled >Select your category</option>
                                         @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
@@ -65,7 +42,6 @@
                                     @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Ingredients</label>
                                 <div class="col-md-8" wire:ignore>
@@ -81,6 +57,31 @@
                                     @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Short Description</label>
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md all_placeholder" id="short_description" placeholder="Briefly describe the recipe" wire:model="short_description">
+                                    @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Description</label>
+                                <div class="col-md-8" wire:ignore>
+                                    <input type="text" class="form-control input-md all_placeholder" id="description" placeholder="Write the recipe step by step ;)" wire:model="description">
+                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-8 control-label h4">Recipe Image</label>
+                                <div class="col-md-8">
+                                    <input type="file" class="input-file img-w mb-2" wire:model="image">
+                                    @error('image') <p class="text-danger">{{$message}}</p> @enderror
+                                    @if($image)
+                                    <img src="{{$image->temporaryUrl()}}" width="120">
+                                    @endif
+                                </div>
+                            </div>
+                           
 
                             <!--  <div class="form-group">
                                 <label class="col-md-8 control-label h4">Ingredients</label>
@@ -112,13 +113,15 @@
 <script>
     /*  @this.set('ingredients_array', $('.hhhhhhh').val()); */
     $(function() {
-        $('.select2').select2().on('change', function() {
+        $('.select2').select2({
+            placeholder: "Add used ingredients"
+        }).on('change', function() {
             @this.set('ingredients_array', $(this).val());
         });
     });
 </script>
 
-<!-- <script>
+<script>
      $(function() {
         tinymce.init({
             selector: '#short_description',
@@ -143,5 +146,5 @@
         })
     });
 
-</script>-->
+</script>
 @endpush

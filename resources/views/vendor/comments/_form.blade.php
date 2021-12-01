@@ -45,7 +45,7 @@
                     @lang('comments::comments.your_message_is_required')
                 </div>
             </div>
-            <button type="submit" class="btn btn-sm btn-outline-success text-uppercase py-2 px-3">@lang('comments::comments.submit')</button>
+            <button type="submit" class="btn btn-sm btn-circle btn-outline-new-white py-2 px-3">@lang('comments::comments.submit')</button>
         </form>
     </div>
 </div>
