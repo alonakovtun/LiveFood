@@ -10,9 +10,14 @@ $markdown->setSafeMode(true);
         <div class="h3 font-weight-normal mt-0 mb-1 text-dark">{{ $comment->commenter->name ?? $comment->guest_name }}
             <p class="h6 font-weight-light text-muted float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ $comment->created_at->diffForHumans() }}</p>
         </div>
-        <div style="white-space: pre-wrap;" class="h5 font-weight-normal text-dark">{!! $markdown->line($comment->comment) !!}
-           <!--  <p class="h6 font-weight-light text-muted float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ $comment->updated_at->diffForHumans() }}</p> -->
+       
+        <div class="h5 font-weight-normal text-dark d-flex justify-content-between">
+            <p>{!! $markdown->line($comment->comment) !!}</p>
+            @if( $comment->created_at != $comment->updated_at)
+            <p class="font-weight-light text-muted float-right" style="font-size:13px"><i class="fa fa-clock-o" aria-hidden="true"></i> Updated {{ $comment->updated_at->diffForHumans() }}</p>
+            @endif
         </div>
+       
 
         <div class="mt-2">
             @can('reply-to-comment', $comment)

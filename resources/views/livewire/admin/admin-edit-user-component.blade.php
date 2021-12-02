@@ -20,8 +20,10 @@
                                 <label class="col-md-8 control-label h4">User Role</label>
                                 <div class="col-md-8">
                                     <select class="form-control" wire:model="user_role">
-                                        <option value="ADM">ADM</option>
-                                        <option value="USR">USR</option>
+                                        <option value="" disabled>Choose</option>
+                                        <option value="ADM">Administrator</option>
+                                        <option value="USR">Users</option>
+                                        <option value="MOD">Moderator</option>
                                     </select>
                                 </div>
                             </div>

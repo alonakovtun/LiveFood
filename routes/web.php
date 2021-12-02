@@ -19,6 +19,8 @@ use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DishRecipes;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\Moderator\ModeratorCommentComponent;
+use App\Http\Livewire\Moderator\ModeratorDashboardComponent;
 use App\Http\Livewire\RecipeDetailsComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\User\UserAddIngredientsComponent;
@@ -55,7 +57,7 @@ Route::get('/contact', ContactComponent::class);
     return view('dashboard');
 })->name('dashboard'); */
 
-//For User
+//For User 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
      Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
 
@@ -89,4 +91,11 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
 
     Route::get('/admin/users', AdminUsersComponent::class)->name('admin.users');
     Route::get('/admin/user/edit/{user_id}', AdminEditUserComponent::class)->name('admin.edituser');
+});
+
+//For Moderator 
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+    Route::get('/moderator/dashboard', ModeratorDashboardComponent::class)->name('moderator.dashboard');
+
+    Route::get('/moderator/comments', ModeratorCommentComponent::class)->name('moderator.comments');
 });

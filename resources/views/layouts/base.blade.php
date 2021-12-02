@@ -69,6 +69,20 @@
                                 </form>
                             </nav>
                         </li>
+                        @elseif(Auth::user()->utype === 'MOD')
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <ul>
+                                    <li><a class="dropdown-item" href="{{ route('moderator.dashboard') }}" }}>Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('moderator.comments') }}" }}>Manage Comments</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                                </ul>
+                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
