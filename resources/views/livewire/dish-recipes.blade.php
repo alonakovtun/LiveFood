@@ -12,7 +12,7 @@
     <!-- End All Pages -->
 
     <!-- Start Menu -->
-    <div class="menu-box">
+    <div class="menu-box"> 
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

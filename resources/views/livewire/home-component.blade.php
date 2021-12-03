@@ -1,4 +1,4 @@
-<div id="slides" class="cover-slides">
+<div id="slides" class="cover-slides" style="height: 600px;!important">
 	<!-- Start slides -->
 	<ul class="slides-container">
 		@foreach($sliders as $slider)
@@ -44,28 +44,6 @@
 	</div> -->
 <!-- End About -->
 
-<!-- Start QT -->
-<div class="qt-box qt-background">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 ml-auto mr-auto text-center">
-				<!-- <p class="lead ">
-						" Cooking is a gift from the gods. Spices are a gift from the devil "
-					</p> -->
-				<!-- <span class="lead">Michael Strahan</span> -->
-
-				<p class="lead ">
-					" There is no sincerer love than the love of food "
-				</p>
-				<span class="lead">George Bernard Shaw</span>
-
-
-			</div>
-		</div>
-	</div>
-</div>
-<!-- End QT -->
-
 <!-- Start Gallery -->
 <div class="gallery-box">
 	<div class="container">
@@ -77,23 +55,23 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="col">
 			<div class="tab-content" id="v-pills-tabContent">
 				<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 					@if($categories->count()>0)
-					<div class="row">
+					<div class="row justify-content-around">
 						@foreach($categories as $category)
 						<div class="col-lg-4 col-md-6 special-grid drinks">
 							<div class="gallery-single fix">
-							<img src="{{asset('assets/images/gallery-img-05.jpg')}}" class="img-fluid" alt="{{$category->name}}" style=" width: 100%!important;">
+								<img src="{{asset('assets/images/gallery-img-05.jpg')}}" class="img-fluid" alt="{{$category->name}}" style=" width: 100%!important;">
 								<div class="why-text">
-									
+
 									<div class=" ">
 										<a class="recipe-go" href="{{route('recipe.category', ['category_slug'=>$category->slug])}}">
-										<h1 class="text-dark font-weight-light">{{$category->name}}</h1>
+											<h1 class="text-dark font-weight-light">{{$category->name}}</h1>
 										</a>
-										
+
 									</div>
 								</div>
 							</div>
@@ -145,6 +123,65 @@
 </div>
 <!-- End Gallery -->
 
+<!-- Start QT -->
+<div class="qt-box qt-background">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 ml-auto mr-auto text-center">
+				<!-- <p class="lead ">
+						" Cooking is a gift from the gods. Spices are a gift from the devil "
+					</p> -->
+				<!-- <span class="lead">Michael Strahan</span> -->
+
+				<p class="lead ">
+					" There is no sincerer love than the love of food "
+				</p>
+				<span class="lead">George Bernard Shaw</span>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End QT -->
+<div class="gallery-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="heading-title text-center">
+					<h2>Latest Recipes</h2>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="tab-content" id="v-pills-tabContent">
+				<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+					@if($categories->count()>0)
+					<div class="row justify-content-around">
+						@foreach($lrecipes as $lrecipe)
+						<div class="col-lg-4 col-md-6 special-grid drinks">
+							<div class="gallery-single fix">
+								<img src="{{asset('assets/images/recipes')}}/{{$lrecipe->image}}" class="img-fluid" alt="{{$lrecipe->name}}" style=" width: 100%!important;">
+								<div class="why-text">
+									<h1><a href="{{route('recipe.details',['slug'=>$lrecipe->slug])}}">{{$lrecipe->name}}</a></h1>
+									<div class="recipe-favorite">
+										<a href="#"><i class="fa fa-heart-o"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						@endforeach
+					</div>
+					@else
+					<h1>No Recipes</h1>
+					@endif
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <!-- Start Customer Reviews -->
 <!-- <div class="customer-reviews-box">
 		<div class="container">

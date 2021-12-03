@@ -46,9 +46,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/dish-recipes">Dish Recipes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                        <li class="nav-item active"><a class="nav-link mr-1" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link mr-1" href="/dish-recipes">Dish Recipes</a></li>
+                        <li class="nav-item"><a class="nav-link mr-1" href="/contact">Contact</a></li>
                         @if(Route::has('login'))
                         @auth
                         @if(Auth::user()->utype === 'ADM')

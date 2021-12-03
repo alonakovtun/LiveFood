@@ -11,6 +11,18 @@
                         </div>
                     </div>
 
+                    <div class="wrap-shop-control">
+                        <div class="wrap-right mb-20">
+                            <div class="sort-item orderby">
+                                <select name="orderby" class="use-chosen custom-select" wire:model="sorting">
+                                    <option value="default" >Default sorting</option>
+                                    <option value="date-new">Sort by newness</option>
+                                    <option value="date-old">Sort by oldest</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="panel-body">
                     @if(Session::has('message'))
                         <div class="alert alert-success" role="alert">

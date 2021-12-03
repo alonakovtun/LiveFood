@@ -10,6 +10,12 @@ class ModeratorCommentComponent extends Component
 {
     use WithPagination;
 
+    public $sorting;
+
+    public function mount(){
+        $this->sorting = "default";
+    }
+
     public function deleteComment($id){
         $comment = Comment::find($id);
         $comment->delete();
@@ -18,7 +24,14 @@ class ModeratorCommentComponent extends Component
 
     public function render()
     {
-        $comments = Comment::paginate(10);
+        if($this->sorting == 'date-new'){
+            $comments = Comment::orderBy('created_at', 'DESC')->paginate(10);
+        }else if($this->sorting == 'date-old'){
+            $comments = Comment::orderBy('created_at', 'ASC')->paginate(10);
+        }else{
+            $comments = Comment::paginate(10);
+        }
+
         return view('livewire.moderator.moderator-comment-component', ['comments'=>$comments])->layout('layouts.base');
     }
 }
