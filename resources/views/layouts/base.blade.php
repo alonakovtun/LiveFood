@@ -10,14 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title>Live Dinner Restaurant - Responsive HTML5 Template</title>
+    <title>LiveFood</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
@@ -68,6 +64,8 @@
                                     <li><a class="dropdown-item" href="{{ route('admin.recipes') }}">Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.homeslider') }}">Manage Home Slider</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.users') }}">Manage Users</a></li>
+                                    <hr class = "mt-0 mb-0">
+                                    <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -82,6 +80,8 @@
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('moderator.dashboard') }}" }}>Dashboard</a></li>
                                     <li><a class="dropdown-item" href="{{ route('moderator.comments') }}" }}>Manage Comments</a></li>
+                                    <hr class = "mt-0 mb-0">
+                                    <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -97,6 +97,7 @@
                                     <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user.recipes') }}">Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user.ingredients') }}">Ingredients</a></li>
+                                    <hr class = "mt-0 mb-0">
                                     <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
