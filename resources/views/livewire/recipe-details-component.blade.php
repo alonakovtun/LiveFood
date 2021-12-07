@@ -31,8 +31,17 @@
                             <div class="side-blog-img">
                                 <img class="img-fluid" src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" alt="{{$recipe->name}}">
                             </div>
-                            <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#">Add to favourites</a>
-
+                            
+                            @if(!$exists)
+                            <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#" wire:click.prevent="addToFavorite({{$recipe->id}}) ">Add to favourites</a>
+                            @else
+                            <a class="btn btn-lg btn-circle btn-outline-new-white mt-25 disabled" href="#">Added to favourites</a>
+                            @endif
+                            @if(Session::has('message'))
+                            <div class="alert alert-success mt-2" role="alert">
+                                {{Session::get('message')}}
+                            </div>
+                            @endif
 
                             <div class="inner-blog-detail details-page pt-2">
                                 {!! $recipe->description !!}

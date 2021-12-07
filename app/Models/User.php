@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Laravelista\Comments\Commenter;
+use ChristianKuri\LaravelFavorite\Traits\Favoriteability;
 
 class User extends Authenticatable
 {
@@ -18,6 +19,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable, Commenter;
     use TwoFactorAuthenticatable;
+    use Favoriteability;
 
     /**
      * The attributes that are mass assignable.
@@ -59,4 +61,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function favorite(){
+        $user = \Auth::user();
+        $user->favorite(Post::class); // returns a collection with the Posts the User marked as favorite
+    }
 }

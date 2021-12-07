@@ -2,17 +2,27 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Favorite;
 use App\Models\Recipe;
 use App\Models\Ingredient;
 use App\Models\User;
+use App\Models\UserRecipe;
+use CreateFavoritesTable;
 use Livewire\Component;
 
 class RecipeDetailsComponent extends Component
 {
     public $slug;
+    public $array = [];
 
     public function mount($slug){
         $this->slug = $slug;
+    }
+
+    public function addToFavorite($id){
+        $recipe = Recipe::find($id);
+        $recipe->addFavorite();
+        session()->flash('message', 'Recipe has been added successfully!');
     }
 
     public function render()
@@ -34,13 +44,27 @@ class RecipeDetailsComponent extends Component
             ->inRandomOrder()
             ->limit(4)
             ->get();
-            
+
+        $user_recipes = UserRecipe::all();
+
+       
+        foreach ($user_recipes as $user_recipe){
+            $this->array = $user_recipe->user_id;
+        }
+
+        $exists = Favorite::where('favoriteable_id', $recipe->id)
+        ->whereIn('user_id', [$this->array])
+        ->exists();
+        
+
+        
         return view('livewire.recipe-details-component', [
             'recipe' => $recipe,
             'ingredients' => $ingredients,
             'related_recipes' => $related_recipes,
             'category' => object_get($recipe, 'category.name', '-'),
-            'user' => object_get($recipe, 'username', 'Unknown')
+            'user' => object_get($recipe, 'username', 'Unknown'),
+            'exists' => $exists,
         ])->layout('layouts.base');
     }
 }

@@ -2492,6 +2492,21 @@ svg{
   padding-bottom: 0;
 }
 
+.recipe-favorite-header .fa{
+  color:  #d65106;
+  font-size: 30px;
+}
+
+.tooltip.bs-tooltip-right .arrow:before {
+  border-right-color: #73706e !important;
+}
+
+.tooltip-inner {
+  background-color: #73706e;
+  padding: 10px;
+  font-size: 15px;
+}
+
 .recipe-go{
   position: absolute;
   left: 0;
@@ -2501,7 +2516,8 @@ svg{
   padding-bottom: 0;
 }
 
-.recipe-favorite .fa{
+.recipe-favorite .fa
+{
   font-size: 25px;
   transition: content .1s ease-in-out;
 }
@@ -2568,3 +2584,4 @@ svg{
   border-radius: 5px;
   height: fit-content;
 }
+

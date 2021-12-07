@@ -6,11 +6,13 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravelista\Comments\Commentable;
+use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
 
 class Recipe extends Model
 {
     use HasFactory;
     use Commentable;
+    use Favoriteable;
 
     protected $table = "recipes";
 

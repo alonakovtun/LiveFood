@@ -23,6 +23,7 @@ use App\Http\Livewire\Moderator\ModeratorCommentComponent;
 use App\Http\Livewire\Moderator\ModeratorDashboardComponent;
 use App\Http\Livewire\RecipeDetailsComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\User\FavouriteComponent;
 use App\Http\Livewire\User\UserAddIngredientsComponent;
 use App\Http\Livewire\User\UserAddRecipeComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
@@ -67,6 +68,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
      Route::get('/user/ingredients', UserIngredientsComponent::class)->name('user.ingredients');
      Route::get('/user/ingredients/add', UserAddIngredientsComponent::class)->name('user.addingredient');
+
+     Route::get('/user/favorite', FavouriteComponent::class)->name('user.favorite');
 });
 
 //For Admin

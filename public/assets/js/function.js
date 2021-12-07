@@ -7,3 +7,7 @@ function addInput() {
     document.getElementById('input' + x).innerHTML = str;
     x++;
 }
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })

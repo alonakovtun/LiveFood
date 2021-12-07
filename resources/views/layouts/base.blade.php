@@ -33,7 +33,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" integrity="sha512-kq3FES+RuuGoBW3a9R2ELYKRywUEQv0wvPTItv3DSGqjpbNtGWVdvT8qwdKkqvPzT93jp8tSF4+oN4IeTEIlQA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-@livewireStyles
+    @livewireStyles
 
 
 </head>
@@ -64,7 +64,7 @@
                                     <li><a class="dropdown-item" href="{{ route('admin.recipes') }}">Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.homeslider') }}">Manage Home Slider</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.users') }}">Manage Users</a></li>
-                                    <hr class = "mt-0 mb-0">
+                                    <hr class="mt-0 mb-0">
                                     <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
@@ -80,7 +80,7 @@
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('moderator.dashboard') }}" }}>Dashboard</a></li>
                                     <li><a class="dropdown-item" href="{{ route('moderator.comments') }}" }}>Manage Comments</a></li>
-                                    <hr class = "mt-0 mb-0">
+                                    <hr class="mt-0 mb-0">
                                     <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
@@ -97,7 +97,7 @@
                                     <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user.recipes') }}">Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user.ingredients') }}">Ingredients</a></li>
-                                    <hr class = "mt-0 mb-0">
+                                    <hr class="mt-0 mb-0">
                                     <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
@@ -119,6 +119,12 @@
                         @endif
                     </ul>
                     @livewire('header-search-component')
+
+                    <div class="recipe-favorite-header ml-4 my-auto ">
+                        <a href="#"  data-toggle="tooltip" data-placement="right" title="" data-original-title="Favorites" class="bg-tooltip">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -144,7 +150,7 @@
                             <div class="clearfix"></div>
                         </form>
                     </div>
-                   <!--  <ul class="list-inline f-social">
+                    <!--  <ul class="list-inline f-social">
                         <li class="list-inline-item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
@@ -201,7 +207,7 @@
     <script src="https://cdn.tiny.cloud/1/wdrdh5p7wxth0sddw2md5sh2ld2pequng5bk7rtoe7ufhgvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireScripts
-    
+
     @stack('scripts')
 </body>
 
