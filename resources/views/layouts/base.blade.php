@@ -73,6 +73,7 @@
                                 </form>
                             </nav>
                         </li>
+                        @livewire('header-search-component')
                         @elseif(Auth::user()->utype === 'MOD')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
@@ -89,6 +90,7 @@
                                 </form>
                             </div>
                         </li>
+                        @livewire('header-search-component')
                         @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
@@ -106,6 +108,12 @@
                                 </form>
                             </div>
                         </li>
+                        @livewire('header-search-component')
+                        <div class="recipe-favorite-header ml-4 my-auto ">
+                            <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="right" title="" data-original-title="Favorites" class="bg-tooltip">
+                                <i class="fa fa-heart"></i>
+                            </a>
+                        </div>
                         @endif
                         @else
                         <li class="nav-item">
@@ -114,17 +122,14 @@
                                 <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Sign Up</a></li>
                             </ul>
                         </li>
+                        @livewire('header-search-component')
                         @endif
 
                         @endif
                     </ul>
-                    @livewire('header-search-component')
 
-                    <div class="recipe-favorite-header ml-4 my-auto ">
-                        <a href="#"  data-toggle="tooltip" data-placement="right" title="" data-original-title="Favorites" class="bg-tooltip">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
+
+
                 </div>
             </div>
         </nav>
