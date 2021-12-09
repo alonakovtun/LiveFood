@@ -74,12 +74,6 @@
                                         <img class="img-fluid" src="{{asset('assets/images/recipes') }}/{{$related_recipe->image}}" alt="">
                                     </div>
                                     <div class="recent-info">
-                                        <ul>
-                                            <li><i class="zmdi zmdi-account"></i>Posted By : <span>{{$user}}</span></li>
-                                            <li>|</li>
-                                            <li><i class="zmdi zmdi-time"></i>Time : <span>{{$recipe->created_at}}</span></li>
-                                        </ul>
-
                                         <h4><a href="{{route('recipe.details',['slug'=>$related_recipe->slug])}}">{{$related_recipe->name}}</a></h4>
                                         <p>{!! $related_recipe->short_description !!}</p>
                                     </div>

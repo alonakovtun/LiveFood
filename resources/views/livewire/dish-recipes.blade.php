@@ -75,6 +75,7 @@
                                             <a class="recipe-go" href="{{route('recipe.details',['slug'=>$recipe->slug])}}">
                                                 <h5 class="text-dark font-weight-normal"><i class="fa fa-long-arrow-right my-auto"> Go to recipe </h5></i>
                                             </a>
+                                            
                                             <a href="#"><i class="fa fa-heart-o"></i></a>
                                         </div>
                                     </div>

@@ -2497,12 +2497,12 @@ svg{
   font-size: 30px;
 }
 
-.tooltip.bs-tooltip-right .arrow:before {
-  border-right-color: #73706e !important;
+.tooltip.bs-tooltip-bottom .arrow:before {
+  border-bottom-color: #d65106 !important;
 }
 
 .tooltip-inner {
-  background-color: #73706e;
+  background-color: #d65106;
   padding: 10px;
   font-size: 15px;
 }
@@ -2585,3 +2585,23 @@ svg{
   height: fit-content;
 }
 
+.rounded-full {
+	border-radius: 9999px;
+}
+
+.object-cover {
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+
+.h-8 {
+	height: 2.3rem;
+}
+
+.w-8 {
+	width: 2.3rem;
+}
+
+.nav-link.dropdown-toggle:after{
+  margin: auto 0;
+}

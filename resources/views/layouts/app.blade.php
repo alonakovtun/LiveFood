@@ -38,7 +38,7 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="font-sans antialiased">
+<body class="antialiased">
 
     <!-- Start header -->
     <header class="top-navbar">
@@ -56,7 +56,9 @@
                         @auth
                         @if(Auth::user()->utype === 'ADM')
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                        <a class="nav-link dropdown-toggle d-flex flex-row" href="#" id="dropdown-a" data-toggle="dropdown">
+                                <img class="h-8 w-8 rounded-full object-cover mr-2" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            </a>
                             <nav class="dropdown-menu" aria-labelledby="dropdown-a" id="nav">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
@@ -76,7 +78,9 @@
                         </li>
                         @elseif(Auth::user()->utype === 'MOD')
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                        <a class="nav-link dropdown-toggle d-flex flex-row" href="#" id="dropdown-a" data-toggle="dropdown">
+                                <img class="h-8 w-8 rounded-full object-cover mr-2" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('moderator.dashboard') }}" }}>Dashboard</a></li>
@@ -92,7 +96,9 @@
                         </li>
                         @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                             <a class="nav-link dropdown-toggle d-flex flex-row" href="#" id="dropdown-a" data-toggle="dropdown">
+                                <img class="h-8 w-8 rounded-full object-cover mr-2" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>

@@ -23,28 +23,7 @@
 </div>
 <!-- End slides -->
 
-<!-- Start About -->
-<!-- <div class="about-section-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
-					<div class="inner-column">
-						<h1>Welcome To <span>Live Dinner Restaurant</span></h1>
-						<h4>Little Story</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-						<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. Sed aliquam metus lorem, a pellentesque tellus pretium a. Nulla placerat elit in justo vestibulum, et maximus sem pulvinar.</p>
-						<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<img src="{{ asset('assets/images/about-img.jpg') }}" alt="" class="img-fluid">
-				</div>
-			</div>
-		</div>
-	</div> -->
-<!-- End About -->
-
-<!-- Start Gallery -->
+<!-- Start Categories -->
 <div class="gallery-box">
 	<div class="container">
 		<div class="row">
@@ -56,89 +35,33 @@
 			</div>
 		</div>
 
-		<div class="col">
-			<div class="tab-content" id="v-pills-tabContent">
-				<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-					@if($categories->count()>0)
-					<div class="row justify-content-around">
-						@foreach($categories as $category)
-						<div class="col-lg-4 col-md-6 special-grid drinks">
-							<div class="gallery-single fix">
-								<img src="{{asset('assets/images/gallery-img-05.jpg')}}" class="img-fluid" alt="{{$category->name}}" style=" width: 100%!important;">
-								<div class="why-text">
-
-									<div class=" ">
-										<a class="recipe-go" href="{{route('recipe.category', ['category_slug'=>$category->slug])}}">
-											<h1 class="text-dark font-weight-light">{{$category->name}}</h1>
-										</a>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						@endforeach
-					</div>
-					@else
-					<h1>No Recipes</h1>
-					@endif
-
+		<div class="tz-gallery">
+			@if($categories->count()>0)
+			<div class="row justify-content-around">
+				@foreach($categories as $category)
+				<div class="col-sm-12 col-md-4 col-lg-4">
+					<h3 class="text-center">{{$category->name}}</h3>
+					<a class="lightbox" href="{{route('recipe.category', ['category_slug'=>$category->slug])}}">
+						<img src="{{asset('assets/images/gallery-img-05.jpg')}}" class="img-fluid" alt="{{$category->name}}">
+					</a>
 				</div>
+				@endforeach
 			</div>
+			@endif
 		</div>
-		<!-- <div class="tz-gallery">
-				<div class="row">
-					<div class="col-sm-12 col-md-4 col-lg-4">
-						<a class="lightbox" href="{{ asset('assets/images/gallery-img-01.jpg') }}">
-							<img class="img-fluid" src="{{ asset('assets/images/gallery-img-01.jpg') }}" alt="Gallery Images">
-						</a>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="{{ asset('assets/images/gallery-img-02.jpg') }}">
-							<img class="img-fluid" src="{{ asset('assets/images/gallery-img-02.jpg') }}" alt="Gallery Images">
-						</a>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="{{ asset('assets/images/gallery-img-03.jpg') }}">
-							<img class="img-fluid" src="{{ asset('assets/images/gallery-img-03.jpg') }}" alt="Gallery Images">
-						</a>
-					</div>
-					<div class="col-sm-12 col-md-4 col-lg-4">
-						<a class="lightbox" href="{{ asset('assets/images/gallery-img-04.jpg') }}">
-							<img class="img-fluid" src="{{ asset('assets/images/gallery-img-04.jpg') }}" alt="Gallery Images">
-						</a>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="{{ asset('assets/images/gallery-img-05.jpg') }}">
-							<img class="img-fluid" src="{{ asset('assets/images/gallery-img-05.jpg') }}" alt="Gallery Images">
-						</a>
-					</div> 
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="{{ asset('assets/images/gallery-img-06.jpg') }}">
-							<img class="img-fluid" src="{{ asset('assets/images/gallery-img-06.jpg') }}" alt="Gallery Images">
-						</a>
-					</div>
-				</div>
-			</div> -->
 	</div>
 </div>
-<!-- End Gallery -->
+<!-- End Categories -->
 
 <!-- Start QT -->
 <div class="qt-box qt-background">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 ml-auto mr-auto text-center">
-				<!-- <p class="lead ">
-						" Cooking is a gift from the gods. Spices are a gift from the devil "
-					</p> -->
-				<!-- <span class="lead">Michael Strahan</span> -->
-
 				<p class="lead ">
 					" There is no sincerer love than the love of food "
 				</p>
 				<span class="lead">George Bernard Shaw</span>
-
-
 			</div>
 		</div>
 	</div>

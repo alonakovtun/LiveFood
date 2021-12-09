@@ -46,7 +46,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbars-rs-food">
+                <div class="collapse navbar-collapse mt-2" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link mr-1" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link mr-1" href="/dish-recipes">Dish Recipes</a></li>
@@ -55,7 +55,9 @@
                         @auth
                         @if(Auth::user()->utype === 'ADM')
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                            <a class="nav-link dropdown-toggle d-flex flex-row" href="#" id="dropdown-a" data-toggle="dropdown">
+                                <img class="h-8 w-8 rounded-full object-cover mr-2" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            </a>
                             <nav class="dropdown-menu" aria-labelledby="dropdown-a" id="nav">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
@@ -73,14 +75,27 @@
                                 </form>
                             </nav>
                         </li>
-                        @livewire('header-search-component')
+                        <li class="nav-item my-auto">
+                            <div class="recipe-favorite-header ml-4 my-auto ">
+                                <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Favorites" class="bg-tooltip">
+                                    <i class="fa fa-heart"></i>
+                                </a>
+                            </div>
+                        </li>
                         @elseif(Auth::user()->utype === 'MOD')
                         <li class="nav-item dropdown">
+                            @if(!empty(Auth::user()->profile_photo_url))
+                            <a class="nav-link dropdown-toggle d-flex flex-row" href="#" id="dropdown-a" data-toggle="dropdown">
+                                <img class="h-8 w-8 rounded-full object-cover mr-2" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            </a>
+                            @else
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                           @endif
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('moderator.dashboard') }}" }}>Dashboard</a></li>
                                     <li><a class="dropdown-item" href="{{ route('moderator.comments') }}" }}>Manage Comments</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.recipes') }}">Recipes</a></li>
                                     <hr class="mt-0 mb-0">
                                     <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
@@ -90,10 +105,18 @@
                                 </form>
                             </div>
                         </li>
-                        @livewire('header-search-component')
+                        <li class="nav-item my-auto">
+                            <div class="recipe-favorite-header ml-4 my-auto ">
+                                <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Favorites" class="bg-tooltip">
+                                    <i class="fa fa-heart"></i>
+                                </a>
+                            </div>
+                        </li>
                         @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">My account({{Auth::user()->name}})</a>
+                            <a class="nav-link dropdown-toggle d-flex flex-row" href="#" id="dropdown-a" data-toggle="dropdown">
+                                <img class="h-8 w-8 rounded-full object-cover mr-2" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
@@ -108,12 +131,13 @@
                                 </form>
                             </div>
                         </li>
-                        @livewire('header-search-component')
-                        <div class="recipe-favorite-header ml-4 my-auto ">
-                            <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="right" title="" data-original-title="Favorites" class="bg-tooltip">
-                                <i class="fa fa-heart"></i>
-                            </a>
-                        </div>
+                        <li class="nav-item my-auto">
+                            <div class="recipe-favorite-header ml-4 my-auto ">
+                                <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Favorites" class="bg-tooltip">
+                                    <i class="fa fa-heart"></i>
+                                </a>
+                            </div>
+                        </li>
                         @endif
                         @else
                         <li class="nav-item">
@@ -122,17 +146,20 @@
                                 <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Sign Up</a></li>
                             </ul>
                         </li>
-                        @livewire('header-search-component')
+
                         @endif
 
                         @endif
+                        @livewire('header-search-component')
                     </ul>
 
 
 
                 </div>
             </div>
+
         </nav>
+
     </header>
     <!-- End header -->
 

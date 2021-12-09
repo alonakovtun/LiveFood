@@ -101,4 +101,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/moderator/dashboard', ModeratorDashboardComponent::class)->name('moderator.dashboard');
 
     Route::get('/moderator/comments', ModeratorCommentComponent::class)->name('moderator.comments');
+
+    Route::get('/admin/recipes', AdminRecipeComponent::class)->name('admin.recipes');
+    Route::get('/admin/recipe/add', AdminAddRecipeComponent::class)->name('admin.addrecipe');
+    Route::get('/admin/recipe/edit/{recipe_slug}', AdminEditRecipeComponent::class)->name('admin.editrecipe');
 });

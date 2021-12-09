@@ -1,4 +1,4 @@
-<div class="main-search-form ml-1" >
+<div class="main-search-form my-auto ml-5" >
     <form action="{{ route('recipe.search')}}">
     @csrf
         <input name="search" placeholder="Find a recipe" type="text">

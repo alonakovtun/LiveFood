@@ -5,7 +5,7 @@ $markdown->setSafeMode(true);
 @endphp
 
 <div id="comment-{{ $comment->getKey() }}" class="media border border-secondary rounded p-3 my-2">
-    <img class="mr-3" src="{{asset('storage/app/public')}}/{{$comment->commenter->profile_photo_path}}" alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar" width="70">
+    <img class="mr-3" src="{{asset('storage')}}/{{$comment->commenter->profile_photo_path}}" alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar" width="70">
     <div class="media-body">
         <div class="h3 font-weight-normal mt-0 mb-1 text-dark">{{ $comment->commenter->name ?? $comment->guest_name }}
             <p class="h6 font-weight-light text-muted float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ $comment->created_at->diffForHumans() }}</p>
