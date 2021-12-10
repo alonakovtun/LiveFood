@@ -62,8 +62,22 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function favorite(){
+     /**
+     * The list of user roles.
+     *
+     * @return void
+     */
+
+    public static function userRoleList(){
+        return [
+            'ADM' => 'Admin',
+            'USR' => 'User',
+            'MOD' => 'Moderator'
+        ];
+    }
+
+    public static function favorite(){
         $user = \Auth::user();
-        $user->favorite(Post::class); // returns a collection with the Posts the User marked as favorite
+        $user->favorite(Recipe::class); // returns a collection with the Posts the User marked as favorite
     }
 }

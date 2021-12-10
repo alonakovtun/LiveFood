@@ -76,6 +76,13 @@
                                 </form>
                             </nav>
                         </li>
+                        <li class="nav-item my-auto">
+                            <div class="recipe-favorite-header ml-4 my-auto ">
+                                <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Favorites" class="bg-tooltip">
+                                    <i class="fa fa-heart"></i>
+                                </a>
+                            </div>
+                        </li>
                         @elseif(Auth::user()->utype === 'MOD')
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex flex-row" href="#" id="dropdown-a" data-toggle="dropdown">
@@ -92,6 +99,13 @@
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                     @csrf
                                 </form>
+                            </div>
+                        </li>
+                        <li class="nav-item my-auto">
+                            <div class="recipe-favorite-header ml-4 my-auto ">
+                                <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Favorites" class="bg-tooltip">
+                                    <i class="fa fa-heart"></i>
+                                </a>
                             </div>
                         </li>
                         @else
@@ -111,6 +125,13 @@
                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                     @csrf
                                 </form>
+                            </div>
+                        </li>
+                        <li class="nav-item my-auto">
+                            <div class="recipe-favorite-header ml-4 my-auto ">
+                                <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Favorites" class="bg-tooltip">
+                                    <i class="fa fa-heart"></i>
+                                </a>
                             </div>
                         </li>
                         @endif

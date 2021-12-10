@@ -80,6 +80,7 @@
                                 <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Favorites" class="bg-tooltip">
                                     <i class="fa fa-heart"></i>
                                 </a>
+                                
                             </div>
                         </li>
                         @elseif(Auth::user()->utype === 'MOD')

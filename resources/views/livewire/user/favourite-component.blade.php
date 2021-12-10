@@ -35,7 +35,7 @@
                             <h1>No Recipes</h1>
                             @endif
                             <div class="wrap-pagination-info">
-                            {{$recipes->links()}}
+                            {{$favorites_recipes->links()}}
                             </div>
                         </div>
                     </div>

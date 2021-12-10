@@ -30,4 +30,9 @@ class Recipe extends Model
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
+
+    public static function favorite(){
+        $user = \Auth::user();
+        $user->favorite(Recipe::class); // returns a collection with the Posts the User marked as favorite
+    }
 }

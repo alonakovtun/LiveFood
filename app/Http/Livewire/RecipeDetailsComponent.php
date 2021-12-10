@@ -13,7 +13,6 @@ use Livewire\Component;
 class RecipeDetailsComponent extends Component
 {
     public $slug;
-    public $array = [];
 
     public function mount($slug){
         $this->slug = $slug;
@@ -45,15 +44,8 @@ class RecipeDetailsComponent extends Component
             ->limit(4)
             ->get();
 
-        $user_recipes = UserRecipe::all();
-
-       
-        foreach ($user_recipes as $user_recipe){
-            $this->array = $user_recipe->user_id;
-        }
-
         $exists = Favorite::where('favoriteable_id', $recipe->id)
-        ->whereIn('user_id', [$this->array])
+        ->whereIn('user_id', [\Auth::id()])
         ->exists();
         
 

@@ -10,4 +10,6 @@ class Favorite extends Model
     use HasFactory;
 
     protected $table = "favorites";
+
+    
 }

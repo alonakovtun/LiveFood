@@ -4,15 +4,18 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Favorite;
 use App\Models\Recipe;
+use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class FavouriteComponent extends Component
 {
+    use WithPagination;
+
     public function render()
     {
-        $favorites_recipes = Favorite::leftJoin('favorites', 'recipes.id', '=', 'favorites.favoriteable_id')
-            ->where('favorites.user_id', \Auth::id())
-            ->paginate(10);
-        return view('livewire.user.favourite-component', [ 'favorites_recipes' =>  $favorites_recipes])->layout('layouts.base');
+        $user = User::favorite();
+        
+        return view('livewire.user.favourite-component', [ 'user' =>  $user])->layout('layouts.base');
     }
 }

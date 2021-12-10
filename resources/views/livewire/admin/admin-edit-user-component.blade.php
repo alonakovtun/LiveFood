@@ -17,13 +17,12 @@
                         <form class="form-horizontal" wire:submit.prevent="updateUser">
                         @csrf
                             <div class="form-group">
-                                <label class="col-md-8 control-label h4">User Role</label>
                                 <div class="col-md-8">
+                                <label for="user_role" class="col-md-8 control-label h4">User Role</label>
                                     <select class="form-control" wire:model="user_role">
-                                        <option value="" disabled>Choose</option>
-                                        <option value="ADM">Administrator</option>
-                                        <option value="USR">Users</option>
-                                        <option value="MOD">Moderator</option>
+                                        @foreach(App\Models\User::userRoleList() as $key => $value)
+                                        <option value="{{$key}}" >{{$value}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
