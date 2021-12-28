@@ -31,18 +31,26 @@
                             <div class="side-blog-img">
                                 <img class="img-fluid" src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" alt="{{$recipe->name}}">
                             </div>
-                            
-                            @if(!$exists)
-                            <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#" wire:click.prevent="addToFavorite({{$recipe->id}}) ">Add to favourites</a>
+                            @if(Auth::user())
+                                @if(!$exists)
+                                <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#" wire:click.prevent="addToFavorite({{$recipe->id}}) ">Add to favourites</a>
+                                @else
+                                <a class="btn btn-lg btn-circle btn-outline-new-white mt-25 disabled" href="#">Added to favourites</a>
+                                @endif
+                                @if(Session::has('message'))
+                                <div class="alert alert-success mt-2" role="alert">
+                                    {{Session::get('message')}}
+                                </div>
+                                @endif
                             @else
-                            <a class="btn btn-lg btn-circle btn-outline-new-white mt-25 disabled" href="#">Added to favourites</a>
+                                <a class="btn btn-lg btn-circle btn-outline-new-white text-white mt-25 disabled" >Add to favourites</a>
+                                <div class="d-flex mt-2">
+                                    <p>You must log in.</p>
+                                    <a class="ml-2 text-primary" href="{{ route('login') }}">Login</a>
+                                </div>
+                                
                             @endif
-                            @if(Session::has('message'))
-                            <div class="alert alert-success mt-2" role="alert">
-                                {{Session::get('message')}}
-                            </div>
-                            @endif
-
+                           
                             <div class="inner-blog-detail details-page pt-2">
                                 {!! $recipe->description !!}
                             </div>

@@ -81,17 +81,21 @@
 		<div class="col">
 			<div class="tab-content" id="v-pills-tabContent">
 				<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-					@if($categories->count()>0)
+					@if($lrecipes->count()>0)
 					<div class="row justify-content-around">
 						@foreach($lrecipes as $lrecipe)
 						<div class="col-lg-4 col-md-6 special-grid drinks">
 							<div class="gallery-single fix">
-								<img src="{{asset('assets/images/recipes')}}/{{$lrecipe->image}}" class="img-fluid" alt="{{$lrecipe->name}}" style=" width: 100%!important;">
+								<img src="{{asset('assets/images/recipes')}}/{{$lrecipe->image}}" class="img-fluid" alt="{{$lrecipe->name}}" style="height: 200px; width: 100%!important;">
 								<div class="why-text">
-									<h1><a href="{{route('recipe.details',['slug'=>$lrecipe->slug])}}">{{$lrecipe->name}}</a></h1>
-									<div class="recipe-favorite">
-										<a href="#"><i class="fa fa-heart-o"></i></a>
-									</div>
+									<a href="{{route('recipe.details',['slug'=>$lrecipe->slug])}}">
+										<h1 class="text-dark font-weight-light">{{$lrecipe->name}}</h1>
+										<div class="recipe-favorite ">
+											<a class="recipe-go" href="{{route('recipe.details',['slug'=>$lrecipe->slug])}}">
+												<h1 class="text-dark font-weight-light"><i class="fa fa-long-arrow-right my-auto"></i> Go to recipe </h1>
+											</a>
+										</div>
+									</a>
 								</div>
 							</div>
 						</div>

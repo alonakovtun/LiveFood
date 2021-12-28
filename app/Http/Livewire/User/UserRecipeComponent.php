@@ -13,7 +13,7 @@ class UserRecipeComponent extends Component
     public int $user_id = 0;
 
     public function deleteRecipe($id){
-        $recipe = Recipe::find($id);
+        $recipe = Recipe::where('id', $id);
         $recipe->delete();
         session()->flash('message', 'Recipe has been deleted successfully!');
     }

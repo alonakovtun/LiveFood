@@ -1,5 +1,5 @@
 <div class="pt-100">
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -58,7 +58,7 @@
                                     </select>
                                     <div class="mt-2 d-flex justify-content-between">
                                         <p class="ml-2">Don't have a required ingredient?</p> 
-                                        <a class="text-primary mr-2 font-weight-bold" href="{{ route('user.addingredient') }}">Add an ingredient!</a>
+                                        <a class="text-primary mr-2 font-weight-bold" href="{{ route('user.addingredient') }}" target="_blank">Add an ingredient!</a>
                                     </div>
                                     @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
@@ -67,14 +67,14 @@
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Short Description</label>
                                 <div class="col-md-8" wire:ignore>
-                                    <input type="text" class="form-control input-md" id="short_description" placeholder="Short Description" wire:model="short_description">
+                                    <input type="text" class="form-control input-md" id="short_description" placeholder="Briefly describe the recipe" wire:model="short_description">
                                     @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Description</label>
                                 <div class="col-md-8" wire:ignore>
-                                    <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
+                                    <input type="text" class="form-control input-md" id="description" placeholder="Write the recipe step by step ;)" wire:model="description">
                                     @error('description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
 
 </script>
 
-<!-- <script>
+<script>
      $(function() {
         tinymce.init({
             selector: '#short_description',
@@ -144,6 +144,6 @@
         })
     });
 
-</script> -->
+</script>
 @endpush
 

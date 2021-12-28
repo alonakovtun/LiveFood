@@ -1,5 +1,5 @@
 <div class="pt-100">
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -52,7 +52,7 @@
                                     </select>
                                     <div class="mt-2 d-flex justify-content-between">
                                         <p class="ml-2">Don't have a required ingredient?</p> 
-                                        <a class="text-primary mr-2 font-weight-bold" href="{{ route('admin.addingredient') }}">Add an ingredient!</a>
+                                        <a class="text-primary mr-2 font-weight-bold" href="{{ route('admin.addingredient') }}" target="_blank">Add an ingredient!</a>
                                     </div>
                                     @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>

@@ -12,7 +12,7 @@
     <!-- End All Pages -->
 
     <!-- Start Menu -->
-    <div class="menu-box"> 
+    <div class="menu-box">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -70,14 +70,14 @@
                                 <div class="gallery-single fix">
                                     <img src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" class="img-fluid" alt="{{$recipe->name}}" style="height:170px!important; width: 100%!important;">
                                     <div class="why-text">
-                                        <h1 class="text-dark font-weight-light">{{$recipe->name}}</h1>
-                                        <div class="recipe-favorite ">
-                                            <a class="recipe-go" href="{{route('recipe.details',['slug'=>$recipe->slug])}}">
-                                                <h5 class="text-dark font-weight-normal"><i class="fa fa-long-arrow-right my-auto"> Go to recipe </h5></i>
-                                            </a>
-                                            
-                                            <a href="#"><i class="fa fa-heart-o"></i></a>
-                                        </div>
+                                        <a href="{{route('recipe.details',['slug'=>$lrecipe->slug])}}">
+                                            <h1 class="text-dark font-weight-light">{{$lrecipe->name}}</h1>
+                                            <div class="recipe-favorite ">
+                                                <a class="recipe-go" href="{{route('recipe.details',['slug'=>$lrecipe->slug])}}">
+                                                    <h1 class="text-dark font-weight-light"><i class="fa fa-long-arrow-right my-auto"></i> Go to recipe </h1>
+                                                </a>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

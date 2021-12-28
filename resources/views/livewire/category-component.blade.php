@@ -4,7 +4,7 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-12">
-                <a href="/dish-recipes" class="h1 text-white">Dish Recipes</a>
+                    <a href="/dish-recipes" class="h1 text-white">Dish Recipes</a>
                 </div>
             </div>
         </div>
@@ -56,26 +56,29 @@
                         @foreach($categories as $category)
                         <a class="nav-link" href="{{ route('recipe.category', ['category_slug'=>$category->slug])}}">{{$category->name}}</a>
                         @endforeach
-                        
+
                     </div>
                 </div>
 
                 <div class="col-9">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                        @if($recipes->count()>0)
+                            @if($recipes->count()>0)
                             <div class="row">
                                 @foreach($recipes as $recipe)
                                 <div class="col-lg-4 col-md-6 special-grid drinks">
                                     <div class="gallery-single fix">
                                         <img src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" class="img-fluid" alt="{{$recipe->name}}" style="height:170px!important; width: 100%!important;">
                                         <div class="why-text">
-                                            <h1><a href="{{route('recipe.details',['slug'=>$recipe->slug])}}">{{$recipe->name}}</a></h1>
-                                            <div class="recipe-favorite">
-                                                <a href="#"><i class="fa fa-heart-o"></i></a>
-                                            </div>
+                                            <a href="{{route('recipe.details',['slug'=>$recipe->slug])}}">
+                                                <h1 class="text-dark font-weight-light">{{$recipe->name}}</h1>
+                                                <div class="recipe-favorite ">
+                                                    <a class="recipe-go" href="{{route('recipe.details',['slug'=>$recipe->slug])}}">
+                                                        <h1 class="text-dark font-weight-light"><i class="fa fa-long-arrow-right my-auto"></i> Go to recipe </h1>
+                                                    </a>
+                                                </div>
+                                            </a>
                                         </div>
-                                        
                                     </div>
                                 </div>
                                 @endforeach
@@ -84,7 +87,7 @@
                             <h1>No Recipes</h1>
                             @endif
                             <div class="wrap-pagination-info">
-                            {{$recipes->links()}}
+                                {{$recipes->links()}}
                             </div>
                         </div>
                     </div>
@@ -94,7 +97,7 @@
     </div>
     <!-- End Menu -->
 
-   
+
 
     <!-- Start Customer Reviews -->
     <div class="customer-reviews-box">
