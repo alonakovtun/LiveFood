@@ -39,7 +39,7 @@
 			@if($categories->count()>0)
 			<div class="row justify-content-around">
 				@foreach($categories as $category)
-				<div class="col-sm-12 col-md-4 col-lg-4">
+				<div class="col-sm-12 col-md-3 col-lg-3">
 					<h3 class="text-center">{{$category->name}}</h3>
 					<a class="lightbox" href="{{route('recipe.category', ['category_slug'=>$category->slug])}}">
 						<img src="{{asset('assets/images/gallery-img-05.jpg')}}" class="img-fluid" alt="{{$category->name}}">

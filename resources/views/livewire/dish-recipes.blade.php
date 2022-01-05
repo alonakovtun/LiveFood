@@ -70,10 +70,10 @@
                                 <div class="gallery-single fix">
                                     <img src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" class="img-fluid" alt="{{$recipe->name}}" style="height:170px!important; width: 100%!important;">
                                     <div class="why-text">
-                                        <a href="{{route('recipe.details',['slug'=>$lrecipe->slug])}}">
-                                            <h1 class="text-dark font-weight-light">{{$lrecipe->name}}</h1>
+                                        <a href="{{route('recipe.details',['slug'=>$recipe->slug])}}">
+                                            <h1 class="text-dark font-weight-light">{{$recipe->name}}</h1>
                                             <div class="recipe-favorite ">
-                                                <a class="recipe-go" href="{{route('recipe.details',['slug'=>$lrecipe->slug])}}">
+                                                <a class="recipe-go" href="{{route('recipe.details',['slug'=>$recipe->slug])}}">
                                                     <h1 class="text-dark font-weight-light"><i class="fa fa-long-arrow-right my-auto"></i> Go to recipe </h1>
                                                 </a>
                                             </div>

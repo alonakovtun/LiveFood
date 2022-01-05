@@ -102,7 +102,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
     Route::get('/moderator/comments', ModeratorCommentComponent::class)->name('moderator.comments');
 
-    Route::get('/admin/recipes', AdminRecipeComponent::class)->name('admin.recipes');
-    Route::get('/admin/recipe/add', AdminAddRecipeComponent::class)->name('admin.addrecipe');
-    Route::get('/admin/recipe/edit/{recipe_slug}', AdminEditRecipeComponent::class)->name('admin.editrecipe');
+    Route::get('/moderator/recipes', AdminRecipeComponent::class)->name('admin.recipes');
+    Route::get('/moderator/recipe/add', AdminAddRecipeComponent::class)->name('admin.addrecipe');
+    Route::get('/moderator/recipe/edit/{recipe_slug}', AdminEditRecipeComponent::class)->name('admin.editrecipe');
+
+    Route::get('/moderator/categories', AdminCategoryComponent::class)->name('admin.categories');
+    Route::get('/moderator/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
+    Route::get('/moderator/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+
+    Route::get('/moderator/ingredients', AdminIngredientComponent::class)->name('admin.ingredients');
+    Route::get('/moderator/ingredient/add', AdminAddIngredientComponent::class)->name('admin.addingredient');
+    Route::get('/moderator/ingredient/edit/{ingredient_id}', AdminEditIngredientComponent::class)->name('admin.editingredient');
 });

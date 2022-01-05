@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Favorite;
 use App\Models\Recipe;
-use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,10 +10,18 @@ class FavouriteComponent extends Component
 {
     use WithPagination;
 
+    public function DeleteFromFav($id){
+        $recipe = Recipe::find($id);
+        $recipe->removeFavorite();
+        session()->flash('message', 'Recipe has been deleted successfully!');
+    }
+
     public function render()
     {
-        $user = User::favorite();
-        
-        return view('livewire.user.favourite-component', [ 'user' =>  $user])->layout('layouts.base');
+            $user = \Auth::user();
+            $favourites = $user->favorite(Recipe::class); // returns a collection with the Posts the User marked as favorite
+
+
+        return view('livewire.user.favourite-component', [ 'favourites' =>  $favourites])->layout('layouts.base');
     }
 }

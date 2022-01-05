@@ -76,8 +76,5 @@ class User extends Authenticatable
         ];
     }
 
-    public function favorite(){
-        $user = \Auth::user();
-        $user->favorite(Recipe::class); // returns a collection with the Posts the User marked as favorite
-    }
+    
 }

@@ -95,8 +95,10 @@
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
                                     <li><a class="dropdown-item" href="{{ route('moderator.dashboard') }}" }}>Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('moderator.comments') }}" }}>Manage Comments</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.categories') }}">Categories</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.ingredients') }}">Ingredients</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.recipes') }}">Recipes</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('moderator.comments') }}">Manage Comments</a></li>
                                     <hr class="mt-0 mb-0">
                                     <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>

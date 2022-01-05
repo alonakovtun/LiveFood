@@ -18,7 +18,6 @@ class HomeComponent extends Component
 
     public function render()
     {
-
         // $recipe = Recipe::select('recipes.id')->get();
         $sliders = HomeSlider::where('status', 1)->get();
         $categories = FoodCategories::all();

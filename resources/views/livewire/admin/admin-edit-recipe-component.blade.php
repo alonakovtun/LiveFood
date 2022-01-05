@@ -42,6 +42,7 @@
                                    @error('category_id') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
+                            
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Short Description</label>
                                 <div class="col-md-8" wire:ignore>
@@ -83,20 +84,9 @@
     </div>
 </div>
 
-<!-- @push('scripts')
+@push('scripts')
 <script>
     $(function(){
-        tinymce.init({
-            selector:  '#short_description',
-            setup: function(editor){
-                editor.on('Change', function(e){
-                    tinyMCE.triggerSave();
-                    var sd_data = $('#short_description').val();
-                    @this.set('short_description', sd_data);
-                })
-            }
-        })
-
         tinymce.init({
             selector:  '#description',
             setup: function(editor){
@@ -109,4 +99,4 @@
         })
     });
 </script>
-@endpush -->
+@endpush
