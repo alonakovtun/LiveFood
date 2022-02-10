@@ -15,12 +15,17 @@
                     </div>
 
                     <div class="panel-body">
-                    @if(Session::has('message'))
+                    @if(Session::has('success'))
                         <div class="alert alert-success" role="alert">
-                            {{Session::get('message')}}
+                            {{Session::get('success')}}
                         </div>
                         @endif
-                        <table class="table tabel-striped text-center">
+                    @if(Session::has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{Session::get('error')}}
+                    </div>
+                    @endif
+                    <table class="table tabel-striped text-center">
                             <thead>
                                 <tr>
                                     <th>Image</th>

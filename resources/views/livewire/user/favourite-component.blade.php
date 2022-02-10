@@ -19,6 +19,7 @@
                             {{Session::get('message')}}
                         </div>
                         @endif
+                        @if($favourites->count()>0)
                             <div class="row">
                                 @foreach($favourites as $fav)
                                 <div class="col-md-4 col-sm-6">
@@ -38,6 +39,9 @@
                                 </div>
                                 @endforeach
                             </div>
+                            @else
+                            <h1> No Recipes</h1>
+                            @endif
 
                         </div>
                     </div>

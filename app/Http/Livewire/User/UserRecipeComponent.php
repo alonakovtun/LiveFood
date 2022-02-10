@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use App\Models\Recipe;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\UserRecipe;
 
 class UserRecipeComponent extends Component
 {
@@ -13,9 +14,15 @@ class UserRecipeComponent extends Component
     public int $user_id = 0;
 
     public function deleteRecipe($id){
-        $recipe = Recipe::where('id', $id);
-        $recipe->delete();
-        session()->flash('message', 'Recipe has been deleted successfully!');
+        $recipe = UserRecipe::find($id);
+
+        if ($recipe) {
+            $recipe->delete();
+            session()->flash('success', 'Recipe has been deleted successfully!');
+        } else {
+            session()->flash('error', 'Recipe not found!');
+        }
+        
     }
     public function render()
     {

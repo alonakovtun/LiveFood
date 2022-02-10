@@ -8,7 +8,6 @@
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Site Metas -->
     <title>LiveFood</title>
     <meta name="keywords" content="">
@@ -60,12 +59,14 @@
                             </a>
                             <nav class="dropdown-menu" aria-labelledby="dropdown-a" id="nav">
                                 <ul>
-                                    <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                    <!-- <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a></li> -->
                                     <li><a class="dropdown-item" href="{{ route('admin.categories') }}">Categories</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.ingredients') }}">Ingredients</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.recipes') }}">Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.homeslider') }}">Manage Home Slider</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.users') }}">Manage Users</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.messages') }}">Messages</a></li>
+
                                     <hr class="mt-0 mb-0">
                                     <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
@@ -94,7 +95,7 @@
                            @endif
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
-                                    <li><a class="dropdown-item" href="{{ route('moderator.dashboard') }}" }}>Dashboard</a></li>
+                                    <!-- <li><a class="dropdown-item" href="{{ route('moderator.dashboard') }}" }}>Dashboard</a></li> -->
                                     <li><a class="dropdown-item" href="{{ route('admin.categories') }}">Categories</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.ingredients') }}">Ingredients</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.recipes') }}">Recipes</a></li>
@@ -122,7 +123,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <ul>
-                                    <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li>
+                                    <!-- <li><a class="dropdown-item" href="{{ route('user.dashboard') }}" }}>Dashboard</a></li> -->
                                     <li><a class="dropdown-item" href="{{ route('user.recipes') }}">Recipes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user.ingredients') }}">Ingredients</a></li>
                                     <hr class="mt-0 mb-0">
@@ -239,8 +240,9 @@
     <script src="{{ asset('assets/js/contact-form-script.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/custom.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/function.js') }}" type="text/javascript"></script>
-    <script src="https://cdn.tiny.cloud/1/wdrdh5p7wxth0sddw2md5sh2ld2pequng5bk7rtoe7ufhgvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.tiny.cloud/1/wdrdh5p7wxth0sddw2md5sh2ld2pequng5bk7rtoe7ufhgvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
     @livewireScripts
 
     @stack('scripts')

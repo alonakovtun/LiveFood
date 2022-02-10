@@ -21,7 +21,7 @@ class AdminAddRecipeComponent extends Component
     public string $short_description = '';
     public string $description = '';
     public $image = null;
-    public int $category_id = 0;
+    public $category_id = null;
     public $ingredients_array = [];
 
     public function generateSlug(){
@@ -51,6 +51,9 @@ class AdminAddRecipeComponent extends Component
             'category_id' => 'required',
             'ingredients_array' => 'required'
         
+        ],
+        [
+            'category_id.required' => 'Please select category'
         ]);
         $recipe = new Recipe();
         /* $ingredients = new Ingredient(); */

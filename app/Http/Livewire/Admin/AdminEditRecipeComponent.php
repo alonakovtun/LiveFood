@@ -8,6 +8,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use App\Models\FoodCategories;
+use App\Models\Ingredient;
+use App\Models\RecipeWithIngredients;
 
 class AdminEditRecipeComponent extends Component
 {
@@ -20,6 +22,8 @@ class AdminEditRecipeComponent extends Component
     public $category_id;
     public $newimage;
     public $recipe_id;
+    public $ingredients_array = [];
+
 
     public function mount($recipe_slug){
         $recipe = Recipe::where('slug', $recipe_slug)->first();
@@ -43,7 +47,8 @@ class AdminEditRecipeComponent extends Component
             'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'ingredients_array' => 'required'
         ]);
     }
 
@@ -54,7 +59,8 @@ class AdminEditRecipeComponent extends Component
             'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'ingredients_array' => 'required'
         
         ]);
 
@@ -72,6 +78,15 @@ class AdminEditRecipeComponent extends Component
         $recipe->category_id = $this->category_id;
         $recipe->save();
 
+        RecipeWithIngredients::where('recipe_id', $recipe->id)->delete();
+
+        foreach ($this->ingredients_array as $ingredient) {
+            RecipeWithIngredients::create([
+                'recipe_id' => $recipe->id,
+                'ingredient_id' => $ingredient
+            ]);
+        }
+
         session()->flash('message', 'Recipe has been updated successfully!');
         return redirect()->route('admin.recipes');
     }
@@ -79,6 +94,18 @@ class AdminEditRecipeComponent extends Component
     public function render()
     {
         $categories = FoodCategories::all();
-        return view('livewire.admin.admin-edit-recipe-component', ['categories'=>$categories])->layout('layouts.base');
+        $selected_ingredients = Ingredient::select('ingredients.name', 'ingredients.id')
+            ->leftJoin('recipe_with_ingredients', 'ingredients.id', '=', 'recipe_with_ingredients.ingredient_id')
+            ->where('recipe_with_ingredients.recipe_id', $this->recipe_id)
+            ->get();
+        $all_ingredients = Ingredient::all();
+
+        $a = [];
+
+        foreach ($selected_ingredients as $selected_ingredient) {
+            $a[] = $selected_ingredient->id;
+        }
+
+        return view('livewire.admin.admin-edit-recipe-component', ['categories' => $categories, 'selected_ingredients' => $a, 'all_ingredients' => $all_ingredients])->layout('layouts.base');
     }
 }

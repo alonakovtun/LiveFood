@@ -21,7 +21,7 @@ class UserAddRecipeComponent extends Component
     public string $short_description = '';
     public string $description = '';
     public $image = null;
-    public int $category_id = 0;
+    public $category_id = null;
     public $ingredients_array = [];
 
     public function generateSlug(){
@@ -36,7 +36,8 @@ class UserAddRecipeComponent extends Component
             'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'ingredients_array' => 'required'
         ]);
     }
 
@@ -47,8 +48,12 @@ class UserAddRecipeComponent extends Component
             'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'ingredients_array' => 'required'
         
+        ],
+        [
+            'category_id.required' => 'Please select category'
         ]);
         $recipe = new Recipe();
         $recipe->name = $this->name;

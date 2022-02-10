@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Name</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control all_placeholder" placeholder="Crisp Cookies" wire:model="name" wire:keyup="generateSlug">
+                                    <input type="text" class="form-control all_placeholder" placeholder="Recipe name" wire:model="name" wire:keyup="generateSlug">
                                     @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
                                 <label class="col-md-8 control-label h4">Category</label>
                                 <div class="col-md-8">
                                     <select class="form-control" wire:model="category_id">
-                                    <option value="" disabled >Select your category</option>
+                                    <option value="null" disabled selected>Select your category</option>
                                         @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
@@ -52,7 +52,7 @@
                                     </select>
                                     <div class="mt-2 d-flex justify-content-between">
                                         <p class="ml-2">Don't have a required ingredient?</p> 
-                                        <a class="text-primary mr-2 font-weight-bold" href="{{ route('admin.addingredient') }}" target="_blank">Add an ingredient!</a>
+                                        <a class="text-primary mr-2 font-weight-bold" href="{{ route('admin.addingredient') }}" >Add an ingredient!</a>
                                     </div>
                                     @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
@@ -125,15 +125,25 @@
      $(function() {
         tinymce.init({
             selector: '#description',
+            init_instance_callback : function(editor) {
+            var freeTiny = document.querySelector('.tox .tox-notification--in');
+            freeTiny.style.display = 'none';
+            },
             setup: function(editor) {
                 editor.on('Change', function(e) {
                     tinyMCE.triggerSave();
                     var d_data = $('#description').val();
                     @this.set('description', d_data);
                 })
-            }
+            },
+            // init_instance_callback : function(editor) {
+            //     var freeTiny = $('.tox-notification-container');
+            //     freeTiny.css({
+            //         display: "none",
+            //         visibility: "hidden"
+            //     });
+            // }
         })
     });
-
 </script>
 @endpush

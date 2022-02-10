@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Name</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Recipe Name" wire:model="name" wire:keyup="generateSlug">
+                                    <input type="text" class="form-control input-md" placeholder="Recipe Name" wire:model="name" wire:keyup="generateSlug" readonly>
                                     @error('name') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
@@ -40,6 +40,20 @@
                                        @endforeach
                                    </select>
                                    @error('category_id') <p class="text-danger">{{$message}}</p>  @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-8" wire:ignore>
+                                    <select class="select2 form-control" multiple="multiple"  id="members" >
+                                        @foreach($all_ingredients as $ingredient)
+                                        @if(in_array($ingredient->id, $selected_ingredients))
+                                        <option value="{{$ingredient->id}}" selected>{{$ingredient->name}}</option>
+                                        @else
+                                        <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+                                        @endif
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             
@@ -86,9 +100,22 @@
 
 @push('scripts')
 <script>
+     $(function(){
+        $('#members').select2({
+            placeholder: "Select Ingredients"
+        }).on('change', function(){
+            @this.set('ingredients_array', $(this).val());
+        });
+    });
+
+
     $(function(){
         tinymce.init({
             selector:  '#description',
+            init_instance_callback : function(editor) {
+            var freeTiny = document.querySelector('.tox .tox-notification--in');
+            freeTiny.style.display = 'none';
+            },
             setup: function(editor){
                 editor.on('Change', function(e){
                     tinyMCE.triggerSave();

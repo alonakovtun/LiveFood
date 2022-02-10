@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Ingredient;
+use App\Models\UserIngredient;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,9 +12,14 @@ class UserIngredientsComponent extends Component
     use WithPagination;
 
     public function deleteIngredient($id){
-        $ingredient = Ingredient::find($id);
-        $ingredient->delete();
-        session()->flash('message', 'Ingredient has been deleted successfully!');
+        $ingredient = UserIngredient::find($id);
+
+        if ($ingredient) {
+            $ingredient->delete();
+            session()->flash('success', 'Ingredient has been deleted successfully!');
+        } else {
+            session()->flash('error', 'Ingredient not found!');
+        }
     }
     public function render()
     {
