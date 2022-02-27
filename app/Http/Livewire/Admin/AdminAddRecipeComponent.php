@@ -56,7 +56,6 @@ class AdminAddRecipeComponent extends Component
             'category_id.required' => 'Please select category'
         ]);
         $recipe = new Recipe();
-        /* $ingredients = new Ingredient(); */
         $recipe->name = $this->name;
         $recipe->slug = $this->slug;
         $recipe->short_description = $this->short_description;
@@ -65,13 +64,8 @@ class AdminAddRecipeComponent extends Component
         $this->image->storeAs('recipes', $imageName);
         $recipe->image = $imageName;
         $recipe->category_id = $this->category_id;
-       /*  foreach ($this->ingredients_array as $ingredient) {
-            $ingredients->name = $ingredient;
-        } */
        
-        $recipe->save();
-        /* $ingredients->save(); */
-        
+        $recipe->save(); 
         
         foreach ($this->ingredients_array as $ingredient) {
             RecipeWithIngredients::create([

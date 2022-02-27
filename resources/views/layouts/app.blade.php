@@ -77,14 +77,6 @@
                                 </form>
                             </nav>
                         </li>
-                        <!-- <li class="nav-item my-auto">
-                            <div class="recipe-favorite-header ml-4 my-auto ">
-                                <a href="{{route('user.favorite')}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Favorites" class="bg-tooltip">
-                                    <i class="fa fa-heart"></i>
-                                </a>
-                                
-                            </div>
-                        </li> -->
                         @elseif(Auth::user()->utype === 'MOD')
                         <li class="nav-item dropdown">
                             @if(!empty(Auth::user()->profile_photo_url))

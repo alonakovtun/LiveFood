@@ -81,18 +81,6 @@
                                     @endif
                                 </div>
                             </div>
-                           
-
-                            <!--  <div class="form-group">
-                                <label class="col-md-8 control-label h4">Ingredients</label>
-                                <div class="col-md-8" wire:ignore>
-                                    <input type="text" class="form-control input-md hhhhhhh" placeholder="Ingredients">
-                                    <div id="input0"></div>
-                                    <div class="add" onclick="addInput()">+++</div>
-                                    @error('ingredients_array') <p class="text-danger">{{$message}}</p> @enderror
-                                </div>
-                            </div> -->
-
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4"></label>
                                 <div class="col-md-8">
@@ -111,7 +99,6 @@
 
 @push('scripts')
 <script>
-    /*  @this.set('ingredients_array', $('.hhhhhhh').val()); */
     $(function() {
         $('.select2').select2({
             placeholder: "Add used ingredients"
@@ -136,13 +123,6 @@
                     @this.set('description', d_data);
                 })
             },
-            // init_instance_callback : function(editor) {
-            //     var freeTiny = $('.tox-notification-container');
-            //     freeTiny.css({
-            //         display: "none",
-            //         visibility: "hidden"
-            //     });
-            // }
         })
     });
 </script>

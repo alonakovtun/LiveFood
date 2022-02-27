@@ -19,7 +19,7 @@ class FavouriteComponent extends Component
     public function render()
     {
             $user = \Auth::user();
-            $favourites = $user->favorite(Recipe::class); // returns a collection with the Posts the User marked as favorite
+            $favourites = $user->favorite(Recipe::class);
 
 
         return view('livewire.user.favourite-component', [ 'favourites' =>  $favourites])->layout('layouts.base');

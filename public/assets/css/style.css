@@ -1241,6 +1241,10 @@ button:focus{
 	text-transform: uppercase;
 	padding: 19px 36px;
 }
+
+button:hover{
+  cursor: pointer;
+}
 .btn{
 	display: inline-block;
 	font-weight: 600;
