@@ -14,6 +14,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
+                   
                         <form class="form-horizontal" wire:submit.prevent="storeIngredient">
                         @csrf
                             <div class="form-group">

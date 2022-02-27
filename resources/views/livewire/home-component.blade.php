@@ -38,11 +38,17 @@
 		<div class="tz-gallery">
 			@if($categories->count()>0)
 			<div class="row justify-content-around">
+				@php
+					$i = 0;
+				@endphp
 				@foreach($categories as $category)
+				@php
+					$i++;
+				@endphp
 				<div class="col-sm-12 col-md-3 col-lg-3">
 					<h3 class="text-center">{{$category->name}}</h3>
 					<a class="lightbox" href="{{route('recipe.category', ['category_slug'=>$category->slug])}}">
-						<img src="{{asset('assets/images/gallery-img-05.jpg')}}" class="img-fluid" alt="{{$category->name}}">
+						<img src="assets/images/category/{{$i}}.jpg" class="img-fluid" alt="{{$category->name}}">
 					</a>
 				</div>
 				@endforeach

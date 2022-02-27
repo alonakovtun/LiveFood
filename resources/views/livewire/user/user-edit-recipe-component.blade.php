@@ -19,14 +19,14 @@
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Name</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Recipe Name" wire:model="name" wire:keyup="generateSlug" readonly>
+                                    <input type="text" class="form-control input-md" placeholder="Recipe Name" wire:model="name" wire:keyup="generateSlug" >
                                     @error('name') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8 control-label h4">Recipe Slug</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control input-md" placeholder="Recipe Slug" wire:model="slug">
+                                    <input type="text" class="form-control input-md" placeholder="Recipe Slug" wire:model="slug" readonly>
                                     @error('slug') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>
                             </div>
@@ -65,8 +65,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-8 control-label h4">Description</label>
-                                <div class="col-md-8">
+                                <label class="col-md-8 control-label h4" >Description</label>
+                                <div class="col-md-8" wire:ignore>
                                     <input type="text" class="form-control input-md" id="description" placeholder="Description" wire:model="description">
                                     @error('description') <p class="text-danger">{{$message}}</p>  @enderror
                                 </div>

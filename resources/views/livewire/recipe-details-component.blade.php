@@ -31,7 +31,8 @@
                             <div class="side-blog-img">
                                 <img class="img-fluid" src="{{asset('assets/images/recipes')}}/{{$recipe->image}}" alt="{{$recipe->name}}">
                             </div>
-                            @if(Auth::user())
+                            @if(Auth::user() && Auth::user()->utype != 'ADM' ) 
+
                                 @if(!$exists)
                                 <a class="btn btn-lg btn-circle btn-outline-new-white mt-25" href="#" wire:click.prevent="addToFavorite({{$recipe->id}}) ">Add to favourites</a>
                                 @else
@@ -42,7 +43,9 @@
                                     {{Session::get('message')}}
                                 </div>
                                 @endif
-                            @else
+                            @endif
+                            @if(!Auth::user()) 
+
                                 <a class="btn btn-lg btn-circle btn-outline-new-white text-white mt-25 disabled" >Add to favourites</a>
                                 <div class="d-flex mt-2">
                                     <p>You must log in.</p>
@@ -90,17 +93,6 @@
                             </div>
                         </div>
                         @endif
-                        <!-- <h3>Recent Tag</h3>
-                        <div class="blog-tag-box">
-                            <ul class="list-inline tag-list">
-                                <li class="list-inline-item"><a href="#">Food</a></li>
-                                <li class="list-inline-item"><a href="#">Drink</a></li>
-                                <li class="list-inline-item"><a href="#">Nature</a></li>
-                                <li class="list-inline-item"><a href="#">Italian</a></li>
-                                <li class="list-inline-item"><a href="#">Bootstrap4</a></li>
-                                <li class="list-inline-item"><a href="#">Fashion</a></li>
-                            </ul>
-                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-8 col-12">
